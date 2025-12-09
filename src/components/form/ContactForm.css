@@ -1,0 +1,7 @@
+/* src/components/form/ContactForm.css */
+
+.contact-form {
+  @apply space-y-6;
+  background-color: white;
+  color: var(--color-text); /* texte de base */
+}
