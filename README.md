@@ -1,4 +1,5 @@
-# 🌅 Lumière d’Arcachon  
+# 🌅 Lumière d’Arcachon
+
 Site personnel dédié au Bassin d’Arcachon.  
 Développé avec **Next.js**, **TypeScript**, **TailwindCSS** et **Prisma**.
 
@@ -11,6 +12,7 @@ L’objectif est de proposer un espace élégant, minimaliste et immersif autour
 reflets, lumières, couleurs, atmosphères, instants capturés.
 
 Le site évoluera progressivement vers :
+
 - une **galerie photo** organisée par lieux et ambiances,
 - un **blog** autour du Bassin,
 - puis, potentiellement, une **plateforme communautaire** (forum, partage de spots, récits, etc.).
@@ -21,12 +23,12 @@ Ce repo contient le code complet du site, construit sur un stack moderne et évo
 
 # ⚙️ Stack technique
 
-- **Next.js 15** — App Router, SSR/SSG/ISR  
-- **TypeScript** — typage strict et robuste  
-- **TailwindCSS** — design system utility-first  
-- **Prisma** — ORM moderne connecté à PostgreSQL  
-- **ESLint + Prettier** — qualité et cohérence du code  
-- **Zod** — validation des schémas côté serveur et client  
+- **Next.js 15** — App Router, SSR/SSG/ISR
+- **TypeScript** — typage strict et robuste
+- **TailwindCSS** — design system utility-first
+- **Prisma** — ORM moderne connecté à PostgreSQL
+- **ESLint + Prettier** — qualité et cohérence du code
+- **Zod** — validation des schémas côté serveur et client
 
 ---
 
@@ -91,13 +93,13 @@ pnpm prisma studio
 
 # 🛠️ Scripts disponibles
 
-- `dev` — lance le serveur Next.js  
-- `build` — build pour la production  
-- `start` — démarre l’app buildée  
-- `lint` — exécute ESLint  
-- `typecheck` — vérifie le typage TypeScript  
-- `prisma migrate dev` — applique les migrations  
-- `prisma studio` — interface graphique Prisma  
+- `dev` — lance le serveur Next.js
+- `build` — build pour la production
+- `start` — démarre l’app buildée
+- `lint` — exécute ESLint
+- `typecheck` — vérifie le typage TypeScript
+- `prisma migrate dev` — applique les migrations
+- `prisma studio` — interface graphique Prisma
 
 ---
 
@@ -110,6 +112,7 @@ A tree hydrated but some attributes of the server rendered HTML didn't match the
 ```
 
 Ce message provient souvent :
+
 - d’extensions navigateur (Grammarly, CZ shortcut, etc.),
 - ou d’injections client automatiques.
 
@@ -123,9 +126,10 @@ Le déploiement recommandé se fait sur **Vercel**, plateforme officielle de Nex
 https://vercel.com
 
 Déploiement simple :
-- Push sur GitHub → Build automatique sur Vercel  
-- Connexion du domaine `lumieredarcachon.fr` via tableau de bord Vercel  
-- SSL automatique  
+
+- Push sur GitHub → Build automatique sur Vercel
+- Connexion du domaine `lumieredarcachon.fr` via tableau de bord Vercel
+- SSL automatique
 
 ---
 
