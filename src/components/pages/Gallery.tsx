@@ -1,17 +1,27 @@
 // src/components/pages/Gallery.tsx
 
-import PageTitle from '@/components/ui/PageTitle';
+import { Image as ImageIcon } from 'lucide-react';
+import PageHero from '../patterns/PageHero';
+import GallerySection from '../gallery/GallerySection';
 import Cta from '../patterns/Cta';
 
 export default function Gallery() {
   return (
-    <div className="pt-8 sm:pt-10 md:pt-14 lg:pt-20">
-      <PageTitle>Portfolio</PageTitle>
+    <div>
+      <PageHero
+        icon={<ImageIcon size={40} />}
+        title="Portfolio"
+        subtitle="Découvrez une sélection de nos plus belles photographies et réalisations."
+        align="center"
+      />
+
+      <GallerySection />
+
       <Cta
-        title="Titre du CTA"
-        description="Description du CTA"
+        title="Vous souhaitez réaliser un shooting ?"
+        description="Contactez-nous pour immortaliser vos instants sous les plus belles lumières du Bassin."
         align="left"
-        primaryLabel="Nous contacter"
+        primaryLabel="Réserver un créneau"
         primaryHref="/contact"
       />
     </div>
