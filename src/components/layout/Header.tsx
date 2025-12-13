@@ -12,11 +12,8 @@ import './Header.css';
 const NAV_ITEMS = [
   { href: '/', label: 'Accueil' },
   { href: '/about', label: 'À propos' },
-  { href: '/services', label: 'Services' },
-  { href: '/testimonials', label: 'Témoignages' },
-  { href: '/news', label: 'Actualités' },
-  { href: '/recruitment', label: 'Recrutement' },
-  { href: '/reservations', label: 'Réservations' },
+  { href: '/gallery', label: 'Gallery' },
+  { href: '/blog', label: 'Articles' },
   { href: '/contact', label: 'Contact' },
 ];
 
@@ -96,7 +93,7 @@ export default function Header() {
       {/* Logo (lien vers l’accueil) */}
       <Link href="/" aria-label="Accueil" className="logo-wrapper">
         <Image
-          src="/images/logo-dark.png"
+          src="/images/logo-light-mode.png"
           alt="Logo du site"
           fill
           sizes="(max-width: 768px) 40px, (max-width: 1024px) 48px, 56px"
