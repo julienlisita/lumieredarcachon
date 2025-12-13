@@ -3,7 +3,7 @@
 import Login from '@/components/pages/Login';
 
 export const metadata = {
-  title: 'Connexion administrateur – Nom du site',
+  title: 'Connexion administrateur – Lumière d’Arcachon',
   description: "Accédez à l'espace administrateur pour gérer le site.",
 };
 

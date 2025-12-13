@@ -3,11 +3,11 @@
 import Home from '@/components/pages/Home';
 
 export const metadata = {
-  title: 'Accueil – Nom entreprise',
+  title: 'Photographie sur le Bassin d’Arcachon – Lumière d’Arcachon',
   description:
-    'Bienvenue sur notre site vitrine. Découvrez nos services et notre expertise au service de votre activité.',
+    'Lumière d’Arcachon est un projet photographique personnel inspiré par les paysages, la mer et les lumières changeantes du Bassin d’Arcachon.',
   alternates: {
-    canonical: 'https://www.exemple.com/',
+    canonical: 'https://www.lumiere-arcachon.com/',
   },
 };
 

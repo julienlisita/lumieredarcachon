@@ -3,11 +3,11 @@
 import Privacy from '@/components/pages/legal/Policy';
 
 export const metadata = {
-  title: 'Politique de confidentialité – Nom entreprise',
+  title: 'Politique de confidentialité – Lumière d’Arcachon',
   description:
-    'Découvrez comment nous collectons, utilisons et protégeons vos données personnelles.',
+    'Politique de confidentialité du site Lumière d’Arcachon : collecte, utilisation et protection des données personnelles.',
   alternates: {
-    canonical: 'https://www.exemple.com/legal/privacy',
+    canonical: 'https://www.lumiere-arcachon.fr/legal/privacy',
   },
 };
 

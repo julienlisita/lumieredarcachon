@@ -3,11 +3,11 @@
 import About from '@/components/pages/About';
 
 export const metadata = {
-  title: 'À propos – Votre Nom',
+  title: 'À propos – Lumière d’Arcachon',
   description:
-    'En savoir plus sur notre entreprise, nos valeurs, et notre engagement envers nos clients.',
+    'Découvrez Lumière d’Arcachon, notre approche photographique, nos valeurs et notre regard sensible sur le Bassin d’Arcachon.',
   alternates: {
-    canonical: 'https://www.exemple.com/about',
+    canonical: 'https://www.lumiere-arcachon.fr/about',
   },
 };
 

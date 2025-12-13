@@ -3,11 +3,11 @@
 import Contact from '@/components/pages/Contact';
 
 export const metadata = {
-  title: 'Contact – Nom entreprise',
+  title: 'Contact – Lumière d’Arcachon',
   description:
-    'Besoin d’informations ou d’un devis ? Contactez-nous via notre formulaire ou par téléphone.',
+    'Une question, un projet photo ou une collaboration ? Contactez moi pour échanger autour de vos envies et de votre univers.',
   alternates: {
-    canonical: 'https://www.exemple.com/contact',
+    canonical: 'https://www.lumieres-arcachon.fr/contact',
   },
 };
 

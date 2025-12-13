@@ -3,11 +3,11 @@
 import Imprint from '@/components/pages/legal/Imprint';
 
 export const metadata = {
-  title: 'Mentions légales – Nom entreprise',
+  title: 'Mentions légales – Lumière d’Arcachon',
   description:
-    'Informations légales concernant l’éditeur du site, l’hébergement et la propriété intellectuelle.',
+    'Mentions légales du site Lumière d’Arcachon : éditeur du site, hébergement, responsabilité et propriété intellectuelle.',
   alternates: {
-    canonical: 'https://www.exemple.com/legal/imprint',
+    canonical: 'https://www.lumiere-arcachon.fr/legal/imprint',
   },
 };
 

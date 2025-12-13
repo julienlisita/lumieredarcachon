@@ -3,11 +3,11 @@
 import Blog from '@/components/pages/Blog';
 
 export const metadata = {
-  title: 'Blog – Lumières d’Arcachon',
+  title: 'Blog – Lumière d’Arcachon',
   description:
-    'Découvrez nos articles, actualités et inspirations autour du Bassin d’Arcachon et de ses lumières uniques.',
+    'Articles, inspirations et réflexions personnelles autour du Bassin d’Arcachon, de la photographie et de la lumière.',
   alternates: {
-    canonical: 'https://www.lumieres-arcachon.com/blog',
+    canonical: 'https://www.lumiere-arcachon.fr/blog',
   },
 };
 

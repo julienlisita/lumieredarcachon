@@ -3,10 +3,11 @@
 import Terms from '@/components/pages/legal/Term';
 
 export const metadata = {
-  title: 'Conditions d’utilisation – Nom entreprise',
-  description: 'Conditions générales d’utilisation de notre site et de nos services.',
+  title: 'Conditions d’utilisation – Lumière d’Arcachon',
+  description:
+    'Conditions générales d’utilisation du site Lumière d’Arcachon et règles applicables à la navigation et aux contenus.',
   alternates: {
-    canonical: 'https://www.exemple.com/legal/term',
+    canonical: 'https://www.lumiere-arcachon.fr/legal/term',
   },
 };
 
