@@ -13,7 +13,7 @@ export default function Footer() {
         {/* Logo */}
         <div className="footer-logo">
           <Image
-            src="/images/logo-white.png"
+            src="/images/logo-dark-mode.png"
             alt="Logo"
             fill
             sizes="(max-width: 768px) 100px, (max-width: 1024px) 120px, 140px"
@@ -25,11 +25,8 @@ export default function Footer() {
         <nav className="footer-nav">
           <Link href="/">Accueil</Link>
           <Link href="/about">À propos</Link>
-          <Link href="/services">Services</Link>
-          <Link href="/testimonials">Témoignages</Link>
-          <Link href="/news">Actualités</Link>
-          <Link href="/recruitment">Recrutement</Link>
-          <Link href="/reservations">Réservations</Link>
+          <Link href="/gallery">Gallerie</Link>
+          <Link href="/blog">Articles</Link>
           <Link href="/contact">Contact</Link>
         </nav>
 
