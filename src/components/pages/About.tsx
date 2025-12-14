@@ -2,7 +2,6 @@
 
 import { Users } from 'lucide-react';
 import PageHero from '../patterns/PageHero';
-import ValuesSection from '../about/ValuesSection';
 import Cta from '../patterns/Cta';
 
 export default function About() {
@@ -14,7 +13,6 @@ export default function About() {
         subtitle="Découvrez notre équipe, nos valeurs et notre vision."
         align="center"
       />
-      <ValuesSection />
       <Cta
         title="Envie d’échanger avec nous ?"
         description="Notre équipe est disponible pour répondre à vos questions et discuter de vos besoins."
