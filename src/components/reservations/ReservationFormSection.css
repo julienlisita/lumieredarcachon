@@ -1,9 +1,0 @@
-/* src/components/reservations/ReservationFormSection.css */
-
-.reservation-form-section {
-  @apply bg-bg;
-}
-
-.reservation-form-aside {
-  @apply text-sm leading-relaxed;
-}
