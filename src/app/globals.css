@@ -2,95 +2,113 @@
 @tailwind components;
 @tailwind utilities;
 
+/* =========================================================
+   Lumière d’Arcachon — Design Tokens
+   Light mode by default
+   Dark mode via .dark on <html> (Tailwind darkMode: 'class')
+   ========================================================= */
+
 :root {
-  /* Échelle neutre */
+  /* ===== Brand palette (LIGHT) ===== */
+  --brand-bg: #f4efe6; /* sable clair (fond global) */
+  --brand-surface: #ffffff; /* surface cartes / blocs */
+  --brand-text: #1c1c1c; /* texte principal (noir doux) */
+  --brand-accent: #d9b98c; /* or doux (accent premium) */
+  --brand-muted: #607d8b; /* bleu-gris océan (secondary) */
+
+  /* ===== Neutrals (for borders, subtle backgrounds, etc.) ===== */
   --neutral-950: #0b0f14;
-  --neutral-900: #111827; /* texte principal / titres forts */
+  --neutral-900: #111827;
   --neutral-800: #1f2937;
   --neutral-700: #374151;
-  --neutral-600: #6b7280; /* accent / primary de wireframe */
+  --neutral-600: #6b7280;
   --neutral-500: #9aa0aa;
-  --neutral-400: #9ca3af; /* muted / texte secondaire */
-  --neutral-300: #d1d5db; /* bordures subtiles */
-  --neutral-200: #e5e7eb; /* surfaces pâles */
+  --neutral-400: #9ca3af;
+  --neutral-300: #d1d5db;
+  --neutral-200: #e5e7eb;
   --neutral-150: #eff1f3;
-  --neutral-100: #f5f5f5; /* fond global */
+  --neutral-100: #f5f5f5;
   --neutral-050: #fafafa;
   --white: #ffffff;
 
   /* ---------- Tokens fonctionnels (toute l’UI) ---------- */
 
-  --color-primary: var(--neutral-900); /* accent fort (CTAs, éléments clés) */
-  --color-secondary: var(--neutral-700); /* accent doux (liens, icônes, badges) */
+  /* Accent fort (CTAs, éléments clés) */
+  --color-primary: var(--brand-accent);
+
+  /* Accent doux (liens, icônes, badges) */
+  --color-secondary: var(--brand-muted);
 
   /* Texte & surfaces */
-  --color-bg: var(--neutral-100); /* fond global */
-  --color-surface: var(--white); /* surface cartes/form */
-  --color-surface-soft: var(--neutral-150);
-  --color-border: var(--neutral-300); /* bordures discrètes */
-  --color-text: var(--color-primary); /* texte courant */
-  --color-heading: var(--color-primary); /* titres/ancres visuelles */
-  --color-muted: var(--neutral-400); /* textes secondaires */
+  --color-bg: var(--brand-bg);
+  --color-surface: var(--brand-surface);
+  --color-surface-soft: color-mix(in oklab, var(--brand-surface) 75%, var(--brand-bg));
+  --color-border: color-mix(in oklab, var(--brand-text) 12%, white);
+  --color-text: var(--brand-text);
+  --color-heading: var(--brand-text);
+  --color-muted: color-mix(in oklab, var(--brand-text) 55%, var(--brand-bg));
 
   /* Liens & états */
   --color-link: var(--color-secondary);
   --color-link-hover: var(--color-primary);
-  --focus-ring: color-mix(in oklab, var(--neutral-600) 40%, white);
+
+  /* Focus ring (doré doux, léger) */
+  --focus-ring: color-mix(in oklab, var(--color-primary) 55%, white);
 
   /* Header (sticky) */
-  --color-header-bg: rgba(255, 255, 255, 0.85); /* transparent clair */
-  --color-header-bg-blur: blur(6px);
-  --color-header-text: var(--neutral-800);
-  --color-header-hover: var(--neutral-600);
-  --color-header-active: var(--color-primary);
-  --color-header-border: color-mix(in oklab, var(--color-primary) 8%, transparent);
-  --color-header-icon: var(--neutral-800);
-  --color-header-mobile-hover: var(--neutral-200);
+  --color-header-bg: rgba(255, 255, 255, 0.85);
+  --color-header-bg-blur: blur(8px);
+  --color-header-text: #1c1c1c;
+  --color-header-hover: var(--brand-muted);
+  --color-header-active: var(--brand-accent);
+  --color-header-border: rgba(0, 0, 0, 0.08);
+  --color-header-icon: #1c1c1c;
+  --color-header-mobile-hover: rgba(0, 0, 0, 0.04);
 
   /* Footer */
-  --color-footer-bg: var(--neutral-800);
-  --color-footer-text: var(--neutral-100);
-  --color-footer-link-hover: var(--neutral-300);
-  --color-footer-border: rgba(255, 255, 255, 0.1);
-  --color-footer-icon: var(--neutral-100);
-  --color-footer-icon-hover: var(--neutral-050);
+  --color-footer-bg: #263238; /* bleu profond (premium) */
+  --color-footer-text: #f2f2f2;
+  --color-footer-link-hover: color-mix(in oklab, var(--color-primary) 70%, white);
+  --color-footer-border: rgba(255, 255, 255, 0.12);
+  --color-footer-icon: #f2f2f2;
+  --color-footer-icon-hover: #ffffff;
 
   /* CTA section */
-  --color-cta-bg: var(--neutral-600); /* fond moyen */
-  --color-cta-fg: var(--white); /* texte CTA */
+  --color-cta-bg: color-mix(in oklab, var(--color-footer-bg) 78%, var(--color-secondary));
+  --color-cta-fg: #f2f2f2;
 
-  /* Boutons (wireframe) */
-  /* Primary = plein foncé */
+  /* Boutons */
+  /* Primary = doré doux (plein) */
   --btn-primary-bg: var(--color-primary);
-  --btn-primary-text: var(--white);
-  --btn-primary-border: var(--color-primary);
-  --btn-primary-hover-bg: color-mix(in oklab, var(--color-primary) 92%, white);
-  --btn-primary-hover-text: var(--white);
-  --btn-primary-hover-border: color-mix(in oklab, var(--color-primary) 88%, white);
+  --btn-primary-text: #0f1a20; /* contraste élégant sur doré */
+  --btn-primary-border: color-mix(in oklab, var(--color-primary) 75%, black);
+  --btn-primary-hover-bg: color-mix(in oklab, var(--color-primary) 88%, white);
+  --btn-primary-hover-text: #0f1a20;
+  --btn-primary-hover-border: color-mix(in oklab, var(--color-primary) 70%, black);
   --btn-primary-focus-ring: var(--focus-ring);
 
-  /* Secondary = plein moyen (ou bascule en outline si besoin) */
+  /* Secondary = bleu-gris (plein) */
   --btn-secondary-bg: var(--color-secondary);
   --btn-secondary-text: var(--white);
-  --btn-secondary-border: var(--color-secondary);
-  --btn-secondary-hover-bg: color-mix(in oklab, var(--color-secondary) 90%, white);
+  --btn-secondary-border: color-mix(in oklab, var(--color-secondary) 80%, black);
+  --btn-secondary-hover-bg: color-mix(in oklab, var(--color-secondary) 88%, white);
   --btn-secondary-hover-text: var(--white);
-  --btn-secondary-hover-border: color-mix(in oklab, var(--color-secondary) 85%, white);
+  --btn-secondary-hover-border: color-mix(in oklab, var(--color-secondary) 70%, black);
   --btn-secondary-focus-ring: var(--focus-ring);
 
   /* GlassLight (pour fonds sombres / images) */
-  --btn-glasslight-bg: rgba(255, 255, 255, 0.1);
+  --btn-glasslight-bg: rgba(255, 255, 255, 0.12);
   --btn-glasslight-text: var(--white);
-  --btn-glasslight-border: rgba(255, 255, 255, 0.3);
+  --btn-glasslight-border: rgba(255, 255, 255, 0.28);
   --btn-glasslight-hover-bg: rgba(255, 255, 255, 0.2);
   --btn-glasslight-hover-text: var(--white);
-  --btn-glasslight-hover-border: rgba(255, 255, 255, 0.4);
-  --btn-glasslight-focus-ring: rgba(255, 255, 255, 0.5);
+  --btn-glasslight-hover-border: rgba(255, 255, 255, 0.38);
+  --btn-glasslight-focus-ring: rgba(255, 255, 255, 0.45);
 
   /* Titres / sous-titres / “eyebrow” */
   --color-section-title: var(--color-heading);
-  --color-subtitle: var(--color-heading);
-  --color-eyebrow: var(--color-heading);
+  --color-subtitle: color-mix(in oklab, var(--color-heading) 80%, var(--color-secondary));
+  --color-eyebrow: var(--color-secondary);
 
   /* Layout */
   --header-height: 56px;
@@ -98,30 +116,69 @@
   /* Cards */
   --card-radius: 0.75rem;
   --card-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
-  --card-shadow-hover: 0 6px 20px rgba(0, 0, 0, 0.08);
+  --card-shadow-hover: 0 10px 28px rgba(0, 0, 0, 0.08);
 
   --card-bg: var(--color-surface);
-  --card-border: var(--neutral-200);
+  --card-border: color-mix(in oklab, var(--brand-text) 12%, white);
   --card-text: var(--color-text);
   --card-title: var(--color-section-title);
-  --card-muted-opacity: 0.75;
+  --card-muted-opacity: 0.78;
 
-  /* En-tête de carte (si variante “with-header”) */
-  --card-header-bg: var(--color-secondary);
+  /* En-tête de carte */
+  --card-header-bg: color-mix(in oklab, var(--color-secondary) 70%, var(--color-footer-bg));
   --card-header-fg: var(--white);
 
   /* Card outlined */
-  --card-outlined-bg: var(--white);
-  --card-outlined-border: var(--color-primary);
+  --card-outlined-bg: var(--color-surface);
+  --card-outlined-border: color-mix(in oklab, var(--color-primary) 55%, var(--brand-text));
 
-  /* Card gradient (gris → gris) */
+  /* Card gradient */
   --card-gradient-fg: var(--white);
-  --card-gradient-start: var(--color-secondary);
-  --card-gradient-end: var(--color-primary);
+  --card-gradient-start: color-mix(in oklab, var(--color-secondary) 75%, var(--color-footer-bg));
+  --card-gradient-end: var(--color-footer-bg);
 
   /* Icônes */
   --card-icon-size: 2.5rem;
   --card-icon-fg: var(--color-secondary);
+
+  /* Alias (si tu utilises background/foreground dans le code) */
+  --background: var(--color-bg);
+  --foreground: var(--color-text);
+
+  /* Mobile menu (toujours clair, indépendant du thème) */
+  --color-mobilemenu-bg: rgba(255, 255, 255, 0.85);
+  --color-mobilemenu-text: #1c1c1c;
+  --color-mobilemenu-hover: rgba(0, 0, 0, 0.04);
+  --color-mobilemenu-active-bg: rgba(0, 0, 0, 0.06);
+  --color-mobilemenu-active-text: #1c1c1c;
+}
+
+/* ===== Dark mode overrides ===== */
+html.dark {
+  /* On inverse l’ambiance, mais on garde l’identité (mêmes accents) */
+  --brand-bg: #0f1a20; /* fond général */
+  --brand-surface: #111c23; /* surface légèrement différente du fond (subtil) */
+  --brand-text: #f2f2f2; /* texte principal */
+  /* On garde l'accent identique = ADN */
+  --brand-accent: #d9b98c;
+
+  /* On garde la logique : le "muted" en dark devient simplement un gris clair */
+  --brand-muted: #c8d0d6;
+
+  /* Re-map uniquement les bases fonctionnelles */
+  --color-bg: var(--brand-bg);
+  --color-surface: var(--brand-surface);
+  --color-text: var(--brand-text);
+  --color-heading: var(--brand-text);
+  --color-muted: var(--brand-muted);
+
+  /* Bordures & focus, minimal et doux */
+  --color-border: rgba(255, 255, 255, 0.12);
+  --focus-ring: color-mix(in oklab, var(--brand-accent) 55%, transparent);
+
+  /* Alias */
+  --background: var(--color-bg);
+  --foreground: var(--color-text);
 }
 
 @media (min-width: 640px) {
