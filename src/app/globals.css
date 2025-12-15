@@ -156,6 +156,24 @@
   --color-mobilemenu-hover: rgba(0, 0, 0, 0.04);
   --color-mobilemenu-active-bg: rgba(0, 0, 0, 0.06);
   --color-mobilemenu-active-text: #1c1c1c;
+
+  /* =========================
+   Contact / Forms
+   ========================= */
+
+  /* Section */
+  --color-contact-bg: var(--color-bg);
+
+  /* Card / bloc formulaire */
+  --color-form-bg: var(--color-surface);
+  --color-form-text: var(--color-text);
+  --color-form-muted: var(--color-muted);
+  --color-form-border: var(--color-border);
+
+  /* Aside (infos) */
+  --color-form-aside-bg: var(--color-surface);
+  --color-form-aside-text: var(--color-text);
+  --color-form-aside-muted: var(--color-muted);
 }
 
 /* ===== Dark mode overrides ===== */

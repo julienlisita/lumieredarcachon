@@ -18,7 +18,7 @@ export default function ContactFormSection() {
           align="left"
         />
         <div className="grid gap-8 grid-cols-1 lg:grid-cols-2 items-start">
-          <div className="max-w-2xl bg-white">
+          <div className="max-w-2xl">
             <ContactForm />
           </div>
 
