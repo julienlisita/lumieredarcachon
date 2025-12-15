@@ -4,7 +4,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { Menu, X } from 'lucide-react';
+import { Menu, Moon, Sun, X } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import { usePathname } from 'next/navigation';
 import './Header.css';
@@ -17,14 +17,38 @@ const NAV_ITEMS = [
   { href: '/contact', label: 'Contact' },
 ];
 
+type Theme = 'light' | 'dark';
+
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const [theme, setTheme] = useState<Theme>('light');
   const btnRef = useRef<HTMLButtonElement>(null);
   const menuRef = useRef<HTMLElement>(null); // <nav> maintenant
   const pathname = usePathname();
 
   const toggleMenu = () => setIsOpen((p) => !p);
   const closeMenu = () => setIsOpen(false);
+
+  // ✅ Init theme: localStorage > system preference
+  useEffect(() => {
+    const stored = window.localStorage.getItem('theme') as Theme | null;
+    const systemPrefersDark = window.matchMedia?.('(prefers-color-scheme: dark)').matches;
+
+    const initialTheme: Theme = stored ?? (systemPrefersDark ? 'dark' : 'light');
+    setTheme(initialTheme);
+
+    document.documentElement.classList.toggle('dark', initialTheme === 'dark');
+  }, []);
+
+  // ✅ Toggle theme + persist
+  const toggleTheme = () => {
+    setTheme((prev) => {
+      const next: Theme = prev === 'dark' ? 'light' : 'dark';
+      document.documentElement.classList.toggle('dark', next === 'dark');
+      window.localStorage.setItem('theme', next);
+      return next;
+    });
+  };
 
   // Esc pour fermer
   useEffect(() => {
@@ -115,22 +139,55 @@ export default function Header() {
         </ul>
       </nav>
 
-      {/* Bouton burger */}
-      <button
-        ref={btnRef}
-        className="menu-toggle lg:hidden"
-        onClick={toggleMenu}
-        aria-label={isOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
-        aria-expanded={isOpen}
-        aria-controls="mobile-nav"
-        type="button"
-      >
-        {isOpen ? (
-          <X className="icon" aria-hidden="true" />
-        ) : (
-          <Menu className="icon" aria-hidden="true" />
-        )}
-      </button>
+      {/* Actions à droite (desktop) */}
+      <div className="header-actions hidden lg:flex">
+        <button
+          type="button"
+          className="theme-toggle"
+          onClick={toggleTheme}
+          aria-label={theme === 'dark' ? 'Activer le mode clair' : 'Activer le mode sombre'}
+          aria-pressed={theme === 'dark'}
+        >
+          {theme === 'dark' ? (
+            <Sun className="icon" aria-hidden="true" />
+          ) : (
+            <Moon className="icon" aria-hidden="true" />
+          )}
+        </button>
+      </div>
+
+      {/* Bouton burger (mobile) + toggle */}
+      <div className="header-actions lg:hidden">
+        <button
+          type="button"
+          className="theme-toggle"
+          onClick={toggleTheme}
+          aria-label={theme === 'dark' ? 'Activer le mode clair' : 'Activer le mode sombre'}
+          aria-pressed={theme === 'dark'}
+        >
+          {theme === 'dark' ? (
+            <Sun className="icon" aria-hidden="true" />
+          ) : (
+            <Moon className="icon" aria-hidden="true" />
+          )}
+        </button>
+
+        <button
+          ref={btnRef}
+          className="menu-toggle"
+          onClick={toggleMenu}
+          aria-label={isOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
+          aria-expanded={isOpen}
+          aria-controls="mobile-nav"
+          type="button"
+        >
+          {isOpen ? (
+            <X className="icon" aria-hidden="true" />
+          ) : (
+            <Menu className="icon" aria-hidden="true" />
+          )}
+        </button>
+      </div>
 
       {/* Menu mobile */}
       <nav

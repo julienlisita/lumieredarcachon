@@ -8,6 +8,26 @@
   border-bottom: 1px solid var(--color-header-border);
 }
 
+.header-actions {
+  @apply items-center gap-2;
+}
+
+/* Toggle thème : discret, même taille que burger */
+.theme-toggle {
+  @apply inline-flex items-center justify-center w-10 h-10 rounded outline-none;
+  /* visuel en CSS pur */
+  background: transparent;
+}
+
+.theme-toggle:hover {
+  background-color: var(--color-header-mobile-hover);
+}
+
+.theme-toggle:focus-visible {
+  outline: 2px solid var(--color-header-active);
+  outline-offset: 2px;
+}
+
 .logo-wrapper {
   @apply relative h-8 sm:h-10 lg:h-12 flex-shrink-0 aspect-[2.85/1];
 }
@@ -40,7 +60,7 @@
   opacity: 0;
   padding-top: 0;
   padding-bottom: 0;
-  background-color: var(--color-header-bg);
+  background-color: var(--color-mobilemenu-bg);
 }
 
 .mobile-menu.open {
@@ -56,6 +76,18 @@
 
 .mobile-link {
   @apply block w-full text-center py-2 outline-none;
+  color: var(--color-mobilemenu-text);
+}
+
+.mobile-link[aria-current='page'] {
+  background-color: var(--color-mobilemenu-active-bg);
+  font-weight: 600;
+  color: var(--color-mobilemenu-active-text);
+}
+
+.mobile-link:focus-visible {
+  outline: 2px solid var(--color-header-active);
+  outline-offset: 2px;
 }
 
 /* ----- Couleurs / États (CSS pur) ----- */
@@ -64,7 +96,7 @@
 }
 
 .nav-link:hover {
-  color: var(--color-header-hover);
+  background-color: var(--color-mobilemenu-hover);
 }
 
 .nav-link[aria-current='page'] {
