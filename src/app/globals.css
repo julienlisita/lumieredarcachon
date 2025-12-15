@@ -79,7 +79,7 @@
   --color-hero-subtitle: rgba(242, 242, 242, 0.85);
 
   /* CTA section */
-  --color-cta-bg: color-mix(in oklab, var(--color-footer-bg) 78%, var(--color-secondary));
+  --color-cta-bg: #263238; /* bleu profond premium */
   --color-cta-fg: #f2f2f2;
 
   /* Boutons */
