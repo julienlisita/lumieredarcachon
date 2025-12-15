@@ -179,6 +179,35 @@
   --color-form-aside-bg: var(--color-surface);
   --color-form-aside-text: var(--color-text);
   --color-form-aside-muted: var(--color-muted);
+
+  /* =========================
+   Form inputs — colors & states
+   ========================= */
+
+  /* Base input */
+  --color-input-bg: var(--color-surface);
+  --color-input-text: var(--color-text);
+  --color-input-border: var(--color-border);
+
+  /* Label */
+  --color-input-label: var(--color-muted);
+  --color-input-label-focus: var(--color-primary);
+
+  /* Hover / focus */
+  --color-input-border-hover: color-mix(in oklab, var(--color-border), var(--color-text) 20%);
+  --color-input-border-focus: var(--color-primary);
+  --color-input-focus-ring: color-mix(in oklab, var(--color-primary), white 85%);
+
+  /* Disabled / readonly */
+  --color-input-bg-disabled: color-mix(in oklab, var(--color-surface), var(--color-border) 20%);
+  --color-input-text-disabled: color-mix(in oklab, var(--color-text), var(--color-muted) 30%);
+
+  /* Help text */
+  --color-input-help: var(--color-muted);
+
+  /* Error state */
+  --color-input-error: #dc2626; /* red-600 */
+  --color-input-error-ring: color-mix(in oklab, var(--color-input-error), white 85%);
 }
 
 /* ===== Dark mode overrides ===== */
