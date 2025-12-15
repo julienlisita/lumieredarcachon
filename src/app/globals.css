@@ -73,6 +73,11 @@
   --color-footer-icon: #f2f2f2;
   --color-footer-icon-hover: #ffffff;
 
+  /* PageHero (bandeau) — identité */
+  --color-hero-bg: var(--color-footer-bg); /* bleu profond premium */
+  --color-hero-fg: #f2f2f2;
+  --color-hero-subtitle: rgba(242, 242, 242, 0.85);
+
   /* CTA section */
   --color-cta-bg: color-mix(in oklab, var(--color-footer-bg) 78%, var(--color-secondary));
   --color-cta-fg: #f2f2f2;
