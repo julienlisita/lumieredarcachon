@@ -4,121 +4,123 @@
 
 /* =========================================================
    Lumière d’Arcachon — Design Tokens
-   Light mode by default
-   Dark mode via .dark on <html> (Tailwind darkMode: 'class')
+   3 levels: Sources → Brand → UI tokens
+   Light mode by default, Dark mode via html.dark
    ========================================================= */
 
 :root {
-  /* ===== Brand palette (LIGHT) ===== */
-  --brand-bg: #f4efe6; /* sable clair (fond global) */
-  --brand-surface: #ffffff; /* surface cartes / blocs */
-  --brand-text: #1c1c1c; /* texte principal (noir doux) */
-  --brand-accent: #d9b98c; /* or doux (accent premium) */
-  --brand-muted: #607d8b; /* bleu-gris océan (secondary) */
+  /* =========================================================
+     COLOR SOURCES (raw palette)
+     ========================================================= */
+  --sand-100: #f4efe6; /* sable clair */
+  --white-100: #ffffff; /* blanc */
+  --ink-900: #1c1c1c; /* noir doux (texte) */
+  --gold-500: #d9b98c; /* or doux (accent) */
+  --sea-600: #607d8b; /* bleu-gris océan (secondary) */
 
-  /* ===== Neutrals (for borders, subtle backgrounds, etc.) ===== */
-  --neutral-950: #0b0f14;
-  --neutral-900: #111827;
-  --neutral-800: #1f2937;
-  --neutral-700: #374151;
-  --neutral-600: #6b7280;
-  --neutral-500: #9aa0aa;
-  --neutral-400: #9ca3af;
-  --neutral-300: #d1d5db;
-  --neutral-200: #e5e7eb;
-  --neutral-150: #eff1f3;
-  --neutral-100: #f5f5f5;
-  --neutral-050: #fafafa;
-  --white: #ffffff;
+  --night-800: #263238; /* bleu profond premium (anchors) */
+  --night-900: #0f1a20; /* nuit (dark background base) */
 
-  /* ---------- Tokens fonctionnels (toute l’UI) ---------- */
+  --on-dark-100: #f2f2f2; /* texte sur fond sombre */
+  --danger-600: #dc2626; /* erreurs */
 
-  /* Accent fort (CTAs, éléments clés) */
-  --color-primary: var(--brand-accent);
+  --ui-white: #ffffff;
 
-  /* Accent doux (liens, icônes, badges) */
-  --color-secondary: var(--brand-muted);
+  /* =========================================================
+     2) BRAND PALETTE (semantic brand mapping)
+     ========================================================= */
+  --brand-bg: var(--sand-100);
+  --brand-surface: var(--white-100);
+  --brand-text: var(--ink-900);
+  --brand-accent: var(--gold-500);
+  --brand-muted: var(--sea-600);
 
-  /* Texte & surfaces */
+  /* Brand anchors (fixed identity, independent from theme) */
+  --brand-strong: var(--night-800);
+  --on-brand-strong: var(--on-dark-100);
+  --on-brand-strong-soft: rgba(242, 242, 242, 0.85);
+
+  /* =========================================================
+     UI TOKENS (functional roles consumed by components)
+     ========================================================= */
+
+  /* Core */
   --color-bg: var(--brand-bg);
   --color-surface: var(--brand-surface);
   --color-surface-soft: color-mix(in oklab, var(--brand-surface) 75%, var(--brand-bg));
-  --color-border: color-mix(in oklab, var(--brand-text) 12%, white);
   --color-text: var(--brand-text);
   --color-heading: var(--brand-text);
   --color-muted: color-mix(in oklab, var(--brand-text) 55%, var(--brand-bg));
 
-  /* Liens & états */
+  /* Accents */
+  --color-primary: var(--brand-accent);
+  --color-secondary: var(--brand-muted);
+
+  /* Borders & states */
+  --color-border: color-mix(in oklab, var(--brand-text) 12%, white);
   --color-link: var(--color-secondary);
   --color-link-hover: var(--color-primary);
-
-  /* Focus ring (doré doux, léger) */
   --focus-ring: color-mix(in oklab, var(--color-primary) 55%, white);
 
-  /* Header (sticky) */
+  /* Header (signature always light) */
   --color-header-bg: rgba(255, 255, 255, 0.85);
   --color-header-bg-blur: blur(8px);
-  --color-header-text: #1c1c1c;
+  --color-header-text: var(--ink-900);
   --color-header-hover: var(--brand-muted);
   --color-header-active: var(--brand-accent);
   --color-header-border: rgba(0, 0, 0, 0.08);
-  --color-header-icon: #1c1c1c;
+  --color-header-icon: var(--ink-900);
   --color-header-mobile-hover: rgba(0, 0, 0, 0.04);
 
-  /* Footer */
-  --color-footer-bg: #263238; /* bleu profond (premium) */
-  --color-footer-text: #f2f2f2;
+  /* Footer / CTA / Heroes (brand anchors) */
+  --color-footer-bg: var(--brand-strong);
+  --color-footer-text: var(--on-brand-strong);
   --color-footer-link-hover: color-mix(in oklab, var(--color-primary) 70%, white);
   --color-footer-border: rgba(255, 255, 255, 0.12);
-  --color-footer-icon: #f2f2f2;
+  --color-footer-icon: var(--on-brand-strong);
   --color-footer-icon-hover: #ffffff;
 
-  /* PageHero (bandeau) — identité */
-  --color-hero-bg: var(--color-footer-bg); /* bleu profond premium */
-  --color-hero-fg: #f2f2f2;
-  --color-hero-subtitle: rgba(242, 242, 242, 0.85);
+  --color-cta-bg: var(--brand-strong);
+  --color-cta-fg: var(--on-brand-strong);
 
-  /* CTA section */
-  --color-cta-bg: #263238; /* bleu profond premium */
-  --color-cta-fg: #f2f2f2;
+  --color-hero-bg: var(--brand-strong);
+  --color-hero-fg: var(--on-brand-strong);
+  --color-hero-subtitle: var(--on-brand-strong-soft);
 
-  /* Home Hero — identité forte (couleur figée, indépendante du thème) */
-  --color-home-hero-bg: #263238;
-  --color-home-hero-fg: #f2f2f2;
+  --color-home-hero-bg: var(--brand-strong);
+  --color-home-hero-fg: var(--on-brand-strong);
   --color-home-hero-subtitle: rgba(242, 242, 242, 0.8);
 
-  /* Boutons */
-  /* Primary = doré doux (plein) */
-  --btn-primary-bg: var(--color-primary);
-  --btn-primary-text: #0f1a20; /* contraste élégant sur doré */
-  --btn-primary-border: color-mix(in oklab, var(--color-primary) 75%, black);
-  --btn-primary-hover-bg: color-mix(in oklab, var(--color-primary) 88%, white);
-  --btn-primary-hover-text: #0f1a20;
-  --btn-primary-hover-border: color-mix(in oklab, var(--color-primary) 70%, black);
-  --btn-primary-focus-ring: var(--focus-ring);
-
-  /* Secondary = bleu-gris (plein) */
-  --btn-secondary-bg: var(--color-secondary);
-  --btn-secondary-text: var(--white);
-  --btn-secondary-border: color-mix(in oklab, var(--color-secondary) 80%, black);
-  --btn-secondary-hover-bg: color-mix(in oklab, var(--color-secondary) 88%, white);
-  --btn-secondary-hover-text: var(--white);
-  --btn-secondary-hover-border: color-mix(in oklab, var(--color-secondary) 70%, black);
-  --btn-secondary-focus-ring: var(--focus-ring);
-
-  /* GlassLight (pour fonds sombres / images) */
-  --btn-glasslight-bg: rgba(255, 255, 255, 0.12);
-  --btn-glasslight-text: var(--white);
-  --btn-glasslight-border: rgba(255, 255, 255, 0.28);
-  --btn-glasslight-hover-bg: rgba(255, 255, 255, 0.2);
-  --btn-glasslight-hover-text: var(--white);
-  --btn-glasslight-hover-border: rgba(255, 255, 255, 0.38);
-  --btn-glasslight-focus-ring: rgba(255, 255, 255, 0.45);
-
-  /* Titres / sous-titres / “eyebrow” */
+  /* Typography tokens */
   --color-section-title: var(--color-heading);
   --color-subtitle: color-mix(in oklab, var(--color-heading) 80%, var(--color-secondary));
   --color-eyebrow: var(--color-secondary);
+
+  /* Buttons */
+  --btn-primary-bg: var(--color-primary);
+  --btn-primary-text: var(--night-900); /* contraste élégant sur doré */
+  --btn-primary-border: color-mix(in oklab, var(--color-primary) 75%, black);
+  --btn-primary-hover-bg: color-mix(in oklab, var(--color-primary) 88%, white);
+  --btn-primary-hover-text: var(--night-900);
+  --btn-primary-hover-border: color-mix(in oklab, var(--color-primary) 70%, black);
+  --btn-primary-focus-ring: var(--focus-ring);
+
+  --btn-secondary-bg: var(--color-secondary);
+  --btn-secondary-text: var(--ui-white);
+  --btn-secondary-border: color-mix(in oklab, var(--color-secondary) 80%, black);
+  --btn-secondary-hover-bg: color-mix(in oklab, var(--color-secondary) 88%, white);
+  --btn-secondary-hover-text: var(--ui-white);
+  --btn-secondary-hover-border: color-mix(in oklab, var(--color-secondary) 70%, black);
+  --btn-secondary-focus-ring: var(--focus-ring);
+
+  /* GlassLight */
+  --btn-glasslight-bg: rgba(255, 255, 255, 0.12);
+  --btn-glasslight-text: var(--ui-white);
+  --btn-glasslight-border: rgba(255, 255, 255, 0.28);
+  --btn-glasslight-hover-bg: rgba(255, 255, 255, 0.2);
+  --btn-glasslight-hover-text: var(--ui-white);
+  --btn-glasslight-hover-border: rgba(255, 255, 255, 0.38);
+  --btn-glasslight-focus-ring: rgba(255, 255, 255, 0.45);
 
   /* Layout */
   --header-height: 56px;
@@ -134,123 +136,98 @@
   --card-title: var(--color-section-title);
   --card-muted-opacity: 0.78;
 
-  /* En-tête de carte */
   --card-header-bg: color-mix(in oklab, var(--color-secondary) 70%, var(--color-footer-bg));
-  --card-header-fg: var(--white);
+  --card-header-fg: var(--ui-white);
 
-  /* Card outlined */
   --card-outlined-bg: var(--color-surface);
   --card-outlined-border: color-mix(in oklab, var(--color-primary) 55%, var(--brand-text));
 
-  /* Card gradient */
-  --card-gradient-fg: var(--white);
+  --card-gradient-fg: var(--ui-white);
   --card-gradient-start: color-mix(in oklab, var(--color-secondary) 75%, var(--color-footer-bg));
   --card-gradient-end: var(--color-footer-bg);
 
-  /* Icônes */
   --card-icon-size: 2.5rem;
   --card-icon-fg: var(--color-secondary);
 
-  /* Alias (si tu utilises background/foreground dans le code) */
-  --background: var(--color-bg);
-  --foreground: var(--color-text);
-
-  /* Mobile menu (toujours clair, indépendant du thème) */
+  /* Mobile menu (always light) */
   --color-mobilemenu-bg: rgba(255, 255, 255, 0.85);
-  --color-mobilemenu-text: #1c1c1c;
+  --color-mobilemenu-text: var(--ink-900);
   --color-mobilemenu-hover: rgba(0, 0, 0, 0.04);
   --color-mobilemenu-active-bg: rgba(0, 0, 0, 0.06);
-  --color-mobilemenu-active-text: #1c1c1c;
+  --color-mobilemenu-active-text: var(--ink-900);
 
-  /* =========================
-   Contact / Forms
-   ========================= */
-
-  /* Section */
+  /* Contact / Forms */
   --color-contact-bg: var(--color-bg);
 
-  /* Card / bloc formulaire */
   --color-form-bg: var(--color-surface);
   --color-form-text: var(--color-text);
   --color-form-muted: var(--color-muted);
   --color-form-border: var(--color-border);
 
-  /* Aside (infos) */
   --color-form-aside-bg: var(--color-surface);
   --color-form-aside-text: var(--color-text);
   --color-form-aside-muted: var(--color-muted);
 
-  /* =========================
-   Form inputs — colors & states
-   ========================= */
-
-  /* Base input */
+  /* Inputs — shared colors */
   --color-input-bg: var(--color-surface);
   --color-input-text: var(--color-text);
   --color-input-border: var(--color-border);
 
-  /* Label */
   --color-input-label: var(--color-muted);
   --color-input-label-focus: var(--color-primary);
 
-  /* Hover / focus */
   --color-input-border-hover: color-mix(in oklab, var(--color-border), var(--color-text) 20%);
   --color-input-border-focus: var(--color-primary);
   --color-input-focus-ring: color-mix(in oklab, var(--color-primary), white 85%);
 
-  /* Disabled / readonly */
   --color-input-bg-disabled: color-mix(in oklab, var(--color-surface), var(--color-border) 20%);
   --color-input-text-disabled: color-mix(in oklab, var(--color-text), var(--color-muted) 30%);
 
-  /* Help text */
   --color-input-help: var(--color-muted);
 
-  /* Error state */
-  --color-input-error: #dc2626; /* red-600 */
+  --color-input-error: var(--danger-600);
   --color-input-error-ring: color-mix(in oklab, var(--color-input-error), white 85%);
+
+  /* Aliases */
+  --background: var(--color-bg);
+  --foreground: var(--color-text);
 }
 
-/* ===== Dark mode overrides ===== */
+/* ===== Dark mode overrides (minimal) ===== */
 html.dark {
-  /* On inverse l’ambiance, mais on garde l’identité (mêmes accents) */
-  --brand-bg: #0f1a20; /* fond général */
-  --brand-surface: #111c23; /* surface légèrement différente du fond (subtil) */
-  --brand-text: #f2f2f2; /* texte principal */
-  /* On garde l'accent identique = ADN */
-  --brand-accent: #d9b98c;
-
-  /* On garde la logique : le "muted" en dark devient simplement un gris clair */
+  /* Only swap the sources that define the “reading context” */
+  --brand-bg: var(--night-900);
+  --brand-surface: #111c23; /* slightly lifted surface */
+  --brand-text: var(--on-dark-100);
   --brand-muted: #c8d0d6;
 
-  /* Re-map uniquement les bases fonctionnelles */
+  /* Remap core roles */
   --color-bg: var(--brand-bg);
   --color-surface: var(--brand-surface);
   --color-text: var(--brand-text);
   --color-heading: var(--brand-text);
   --color-muted: var(--brand-muted);
 
-  /* Bordures & focus, minimal et doux */
   --color-border: rgba(255, 255, 255, 0.12);
   --focus-ring: color-mix(in oklab, var(--brand-accent) 55%, transparent);
 
-  /* Alias */
   --background: var(--color-bg);
   --foreground: var(--color-text);
 }
 
 @media (min-width: 640px) {
   :root {
-    --header-height: 64px; /* sm:h-16 */
+    --header-height: 64px;
   }
 }
 
 @media (min-width: 1024px) {
   :root {
-    --header-height: 80px; /* lg:h-20 */
+    --header-height: 80px;
   }
 }
 
-/* Reset simple et base */
+/* Reset */
 * {
   box-sizing: border-box;
 }
