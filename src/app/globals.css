@@ -197,6 +197,12 @@
   --color-input-help-strong: color-mix(in oklab, var(--color-input-help), black 20%);
   --color-input-error-strong: #b91c1c; /* rouge-700 (message d'erreur) */
 
+  /* =========================
+   Overlay / Modal
+   ========================= */
+
+  --color-overlay-bg: rgba(15, 26, 32, 0.55); /* light mode */
+
   /* Aliases */
   --background: var(--color-bg);
   --foreground: var(--color-text);
@@ -219,6 +225,8 @@ html.dark {
 
   --color-border: rgba(255, 255, 255, 0.12);
   --focus-ring: color-mix(in oklab, var(--brand-accent) 55%, transparent);
+
+  --color-overlay-bg: rgba(0, 0, 0, 0.65);
 
   --background: var(--color-bg);
   --foreground: var(--color-text);
