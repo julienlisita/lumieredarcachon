@@ -13,7 +13,7 @@
   @apply h-4 w-4 rounded-full border transition-colors;
   appearance: none; /* on remplace le rendu natif */
   border: 1.5px solid var(--color-input-border);
-  background-color: var(--color-input-surface);
+  background-color: var(--color-input-bg);
   position: relative;
   cursor: pointer;
 }

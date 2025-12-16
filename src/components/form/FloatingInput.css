@@ -42,7 +42,7 @@
 
 /* Invalid (depuis prop error) */
 .floating-input.is-invalid {
-  border-color: #dc2626; /* red-600 */
+  border-color: var(--color-input-error);
   box-shadow: 0 0 0 3px var(--color-input-error-ring);
 }
 
@@ -52,7 +52,7 @@
   top: 0.5rem;
   left: 0.75rem;
   font-size: 0.875rem; /* text-sm */
-  color: var(--color-muted);
+  color: var(--color-input-label);
   z-index: 10;
   transform-origin: 0 0;
   transform: translateY(1rem) scale(1);
@@ -65,8 +65,8 @@
 .floating-input:focus + .floating-input-label,
 .floating-input:not(:placeholder-shown) + .floating-input-label {
   transform: translateY(-0.6rem) scale(0.82);
-  color: var(--color-primary);
-  background: var(--color-surface);
+  color: var(--color-input-label-focus);
+  background: var(--color-input-bg);
   padding: 0 0.2rem; /* petit fond pour lisibilité sur bordures */
 }
 
@@ -74,7 +74,7 @@
 .floating-input-help {
   margin-top: 0.375rem;
   font-size: 0.8125rem; /* ~ text-sm minus */
-  color: var(--color-input-error);
+  color: var(--color-input-help);
 }
 .floating-input-help.is-error {
   color: var(--color-input-error);
@@ -82,7 +82,7 @@
 
 /* Autofill (Safari/Chrome) pour garder nos couleurs) */
 .floating-input:-webkit-autofill {
-  -webkit-text-fill-color: var(--color-text);
+  -webkit-text-fill-color: var(--color-input-text);
   transition:
     background-color 9999s ease-out,
     color 9999s ease-out;
