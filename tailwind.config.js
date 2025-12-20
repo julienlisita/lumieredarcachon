@@ -1,3 +1,5 @@
+// tailwind.config.js
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -23,6 +25,13 @@ module.exports = {
           600: 'var(--neutral-600)',
           900: 'var(--neutral-900)',
         },
+      },
+      fontFamily: {
+        heading: ['var(--font-playfair)', 'serif'], // H1
+        subheading: ['var(--font-montserrat)', 'system-ui', 'sans-serif'], // H2 / H3
+        body: ['var(--font-lora)', 'serif'], // Texte éditorial
+        ui: ['var(--font-inter)', 'system-ui', 'sans-serif'], // texte / UI
+        sans: ['var(--font-inter)', 'system-ui', 'sans-serif'], // fallback
       },
     },
   },

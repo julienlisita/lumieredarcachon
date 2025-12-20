@@ -4,10 +4,12 @@
 .para {
   color: var(--color-text);
   line-height: 1.75;
+  @apply font-body;
 }
 
 .lead {
   color: var(--color-muted);
   line-height: 1.8;
   font-size: 1.125rem;
+  @apply font-body;
 }

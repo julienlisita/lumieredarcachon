@@ -4,6 +4,7 @@
 .prose-content {
   color: var(--color-text);
   line-height: 1.75;
+  @apply font-body;
 }
 
 /* Titres internes */

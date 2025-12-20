@@ -1,7 +1,7 @@
 /* src/components/ui/Button.css */
 
 .btn {
-  @apply inline-block px-6 py-3 text-sm font-semibold rounded-[15px] transition-colors duration-200;
+  @apply font-ui inline-block px-6 py-3 text-sm font-semibold rounded-[15px] transition-colors duration-200;
 }
 
 .btn.primary {

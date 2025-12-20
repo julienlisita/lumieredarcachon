@@ -44,7 +44,7 @@
 }
 
 .hero-intro__subtitle {
-  @apply text-lg opacity-90 max-w-2xl text-center;
+  @apply text-lg opacity-90 max-w-2xl text-center font-sans;
   color: var(--hero-subtitle);
 }
 .hero-intro.is-left .hero-intro__subtitle {

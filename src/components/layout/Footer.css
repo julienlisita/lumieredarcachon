@@ -17,7 +17,7 @@
 
 .footer-nav {
   @apply flex flex-col sm:flex-row items-center justify-center 
-         space-y-2 sm:space-y-0 sm:space-x-6 text-center font-medium text-sm;
+         space-y-2 sm:space-y-0 sm:space-x-6 text-center font-medium font-ui text-sm;
 }
 
 /* --- Réseaux sociaux --- */
@@ -52,7 +52,7 @@
 }
 
 .footer-legal {
-  @apply flex flex-col sm:flex-row items-center space-y-1 sm:space-y-0 sm:space-x-4;
+  @apply flex flex-col sm:flex-row items-center space-y-1 sm:space-y-0 sm:space-x-4 font-ui;
 }
 
 .footer-legal a {

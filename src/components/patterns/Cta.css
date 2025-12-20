@@ -9,11 +9,11 @@
 
 /* Title */
 .cta-title {
-  @apply text-2xl sm:text-3xl font-bold;
+  @apply text-2xl sm:text-3xl font-bold font-subheading;
 }
 
 /* Description */
 .cta-description {
-  @apply max-w-2xl text-lg;
+  @apply max-w-2xl text-lg font-sans;
   opacity: 0.9;
 }

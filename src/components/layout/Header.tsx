@@ -127,7 +127,7 @@ export default function Header() {
       </Link>
 
       {/* Nav desktop */}
-      <nav className="main-nav hidden lg:block" aria-label="Navigation principale">
+      <nav className="main-nav hidden lg:block font-ui" aria-label="Navigation principale">
         <ul className="nav-list">
           {NAV_ITEMS.map((item) => (
             <li key={item.href}>
@@ -193,7 +193,7 @@ export default function Header() {
       <nav
         ref={menuRef}
         id="mobile-nav"
-        className={`mobile-menu ${isOpen ? 'open' : ''}`}
+        className={`mobile-menu font-ui ${isOpen ? 'open' : ''}`}
         aria-label="Navigation principale mobile"
         hidden={!isOpen}
         aria-hidden={!isOpen}
