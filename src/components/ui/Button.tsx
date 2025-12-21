@@ -7,7 +7,7 @@ import React from 'react';
 import clsx from 'clsx';
 import './Button.css';
 
-type Variant = 'primary' | 'secondary';
+type Variant = 'primary' | 'secondary' | 'glasslight';
 
 type BaseProps = {
   variant?: Variant;

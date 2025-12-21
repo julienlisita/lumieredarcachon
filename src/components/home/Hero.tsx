@@ -6,7 +6,7 @@ import './Hero.css';
 import Image from 'next/image';
 
 export default function Hero() {
-  const showBackground = false;
+  const showBackground = true;
 
   return (
     <section className="hero-section">
@@ -15,7 +15,7 @@ export default function Hero() {
         <>
           <div className="absolute inset-0 -z-10">
             <Image
-              src="/images/home/hero.avif"
+              src="/images/home/hero.webp"
               alt=""
               fill
               priority
@@ -29,7 +29,7 @@ export default function Hero() {
       )}
       <div className="hero-container">
         {/* Logo */}
-        <div className="flex justify-center">
+        <div className="flex justify-center md:justify-start">
           <Image
             src="/images/logo-dark-mode.png"
             alt="Logo de 'Lumière d'Arcachon'"
@@ -40,20 +40,17 @@ export default function Hero() {
         </div>
 
         {/* Titre */}
-        <PageTitle color="#00000">
-          Mettre en valeur votre activité avec un site professionnel
+        <PageTitle className="text-center md:text-left">
+          Instants, reflets et horizons du Bassin d’Arcachon
         </PageTitle>
-
-        {/* Tagline*/}
-        <p className="hero-subtitle">Un design clair, responsive et rapide à mettre en place.</p>
 
         {/* CTAs */}
         <div className="hero-actions">
-          <Button variant="primary" href="/contact">
-            Demander un devis
+          <Button variant="primary" href="/gallery">
+            Découvrir la galerie
           </Button>
-          <Button variant="secondary" href="/portfolio">
-            Voir des exemples
+          <Button variant="glasslight" href="https://www.instagram.com/julienlisita/">
+            Voir sur Instagram
           </Button>
         </div>
       </div>
