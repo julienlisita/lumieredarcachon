@@ -33,20 +33,20 @@ export default function Footer() {
         {/* Réseaux sociaux */}
         <div className="footer-socials">
           <a
-            href="#"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Suivez-nous sur Facebook"
-          >
-            <FiFacebook className="footer-icon" aria-hidden="true" />
-          </a>
-          <a
-            href="#"
+            href="https://www.instagram.com/julienlisita/"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Suivez-nous sur Instagram"
           >
             <FiInstagram className="footer-icon" aria-hidden="true" />
+          </a>
+          <a
+            href="https://www.facebook.com/people/Julien-Lisita/61558499249833/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Suivez-nous sur Facebook"
+          >
+            <FiFacebook className="footer-icon" aria-hidden="true" />
           </a>
         </div>
       </div>
