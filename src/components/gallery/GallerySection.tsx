@@ -1,18 +1,65 @@
-export default function GallerySection() {
-  return (
-    <section className="py-16 px-4">
-      <div className="max-w-6xl mx-auto">
-        <h2 className="text-3xl font-bold mb-8">Nos réalisations</h2>
+// src/components/gallery/GallerySection.tsx
 
-        {/* Grille d’images */}
-        <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-          <div className="aspect-square bg-gray-200 rounded-lg"></div>
-          <div className="aspect-square bg-gray-200 rounded-lg"></div>
-          <div className="aspect-square bg-gray-200 rounded-lg"></div>
-          <div className="aspect-square bg-gray-200 rounded-lg"></div>
-          {/* Plus tard : map dynamique */}
-        </div>
-      </div>
-    </section>
+'use client';
+
+import { useMemo } from 'react';
+import { useSearchParams, useRouter } from 'next/navigation';
+import Section from '@/components/layout/Section';
+import SectionWrapper from '@/components/layout/SectionWrapper';
+import HeaderBlock from '@/components/patterns/HeaderBlock';
+import { PHOTOS } from '@/data/photos';
+import GalleryGrid from './GalleryGrid';
+import GalleryLightbox from './GalleryLightbox';
+
+export default function GallerySection() {
+  const params = useSearchParams();
+  const router = useRouter();
+
+  const activeId = params.get('photo');
+
+  const activeIndex = useMemo(() => {
+    if (!activeId) return -1;
+    return PHOTOS.findIndex((p) => p.id === activeId);
+  }, [activeId]);
+
+  const isOpen = activeIndex >= 0;
+
+  const open = (id: string) => router.push(`/gallery?photo=${id}`, { scroll: false });
+  const close = () => router.push('/gallery', { scroll: false });
+
+  const goPrev = () => {
+    if (!isOpen) return;
+    const prev = (activeIndex - 1 + PHOTOS.length) % PHOTOS.length;
+    router.push(`/gallery?photo=${PHOTOS[prev].id}`, { scroll: false });
+  };
+
+  const goNext = () => {
+    if (!isOpen) return;
+    const next = (activeIndex + 1) % PHOTOS.length;
+    router.push(`/gallery?photo=${PHOTOS[next].id}`, { scroll: false });
+  };
+
+  return (
+    <Section labelledBy="gallery-title" describedBy="gallery-subtitle">
+      <SectionWrapper className="max-w-6xl mx-auto">
+        <HeaderBlock
+          align="left"
+          eyebrow="Galerie"
+          title="Toutes les photos"
+          subtitle="Une sélection évolutive des lumières du Bassin d’Arcachon."
+          titleId="gallery-title"
+          subtitleId="gallery-subtitle"
+        />
+
+        <GalleryGrid photos={PHOTOS} onOpen={open} />
+        <GalleryLightbox
+          open={isOpen}
+          photo={isOpen ? PHOTOS[activeIndex] : null}
+          onClose={close}
+          onPrev={goPrev}
+          onNext={goNext}
+        />
+      </SectionWrapper>
+    </Section>
   );
 }

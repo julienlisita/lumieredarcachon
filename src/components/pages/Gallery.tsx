@@ -4,6 +4,7 @@ import { Image as ImageIcon } from 'lucide-react';
 import PageHero from '../patterns/PageHero';
 import GallerySection from '../gallery/GallerySection';
 import Cta from '../patterns/Cta';
+import { Suspense } from 'react';
 
 export default function Gallery() {
   return (
@@ -15,7 +16,9 @@ export default function Gallery() {
         align="center"
       />
 
-      <GallerySection />
+      <Suspense fallback={null}>
+        <GallerySection />
+      </Suspense>
 
       <Cta
         title="Vous souhaitez réaliser un shooting ?"
