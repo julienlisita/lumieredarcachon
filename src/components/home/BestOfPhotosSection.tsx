@@ -58,7 +58,7 @@ export default function BestOfPhotosSection({ photos }: Props) {
 
             {/* CTA desktop uniquement */}
             <Link
-              href="/galerie"
+              href="/gallery"
               className="hidden sm:inline-flex font-ui text-sm text-[color:var(--color-link)] hover:text-[color:var(--color-link-hover)] transition-colors"
             >
               Voir toute la galerie <span aria-hidden>→</span>

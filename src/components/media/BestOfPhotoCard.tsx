@@ -20,7 +20,7 @@ type Props = {
 };
 
 export default function BestOfPhotoCard({ photo, className }: Props) {
-  const href = photo.href ?? '/galerie';
+  const href = photo.href ?? '/gallery';
 
   return (
     <Link href={href} className={clsx('bestof-card', className)}>
