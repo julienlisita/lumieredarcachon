@@ -9,7 +9,7 @@
 .lightbox-backdrop {
   position: absolute;
   inset: 0;
-  background: var(--color-overlay-bg);
+  background: var(--color-lightbox-overlay-bg);
   border: 0;
 }
 
@@ -66,7 +66,7 @@
 
 .lightbox-img {
   object-fit: contain;
-  background: rgba(0, 0, 0, 0.15);
+  background: rgba(0, 0, 0, 0.08);
 }
 
 .lightbox-nav {
