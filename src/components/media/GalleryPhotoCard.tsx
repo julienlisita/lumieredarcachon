@@ -20,6 +20,13 @@ export default function GalleryPhotoCard({ photo, onOpen }: Props) {
           sizes="(min-width: 1024px) 25vw, 50vw"
           className="gallery-img"
         />
+        <div className="gallery-overlay" />
+
+        {photo.label && (
+          <div className="gallery-caption">
+            <span className="gallery-label">{photo.label}</span>
+          </div>
+        )}
       </div>
     </button>
   );
