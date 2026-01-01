@@ -123,7 +123,7 @@
   --btn-glasslight-focus-ring: rgba(255, 255, 255, 0.45);
 
   /* Layout */
-  --header-height: 56px;
+  /* --header-height: 56px; */
 
   /* Cards */
   --card-radius: 0.75rem;
@@ -230,18 +230,8 @@ html.dark {
 
   --background: var(--color-bg);
   --foreground: var(--color-text);
-}
 
-@media (min-width: 640px) {
-  :root {
-    --header-height: 64px;
-  }
-}
-
-@media (min-width: 1024px) {
-  :root {
-    --header-height: 80px;
-  }
+  --header-offset: var(--header-height);
 }
 
 /* Reset */

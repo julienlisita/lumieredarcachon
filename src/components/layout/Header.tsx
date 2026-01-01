@@ -11,9 +11,9 @@ import './Header.css';
 
 const NAV_ITEMS = [
   { href: '/', label: 'Accueil' },
-  { href: '/about', label: 'À propos' },
   { href: '/gallery', label: 'Gallery' },
   { href: '/blog', label: 'Articles' },
+  { href: '/about', label: 'À propos' },
   { href: '/contact', label: 'Contact' },
 ];
 
@@ -113,7 +113,7 @@ export default function Header() {
   const linkProps = (href: string) => (isActive(href) ? { 'aria-current': 'page' as const } : {});
 
   return (
-    <header className="site-header">
+    <header id="site-header" className="site-header">
       {/* Logo (lien vers l’accueil) */}
       <Link href="/" aria-label="Accueil" className="logo-wrapper">
         <Image
