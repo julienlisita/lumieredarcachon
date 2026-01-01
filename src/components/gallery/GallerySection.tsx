@@ -41,7 +41,7 @@ export default function GallerySection() {
 
   return (
     <Section labelledBy="gallery-title" describedBy="gallery-subtitle">
-      <SectionWrapper className="max-w-6xl mx-auto">
+      <SectionWrapper>
         <HeaderBlock
           align="left"
           eyebrow="Galerie"
