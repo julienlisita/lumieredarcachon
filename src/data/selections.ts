@@ -1,8 +1,8 @@
 export const BEST_OF_IDS = [
-  'pereire-aube',
-  'reflets-maree',
-  'arcachon-golden',
-  'brumes-matin',
-  'capferret-doux',
-  'horizon-soir',
+  'plage-chapelle',
+  'escalumade-illumination',
+  'andernos-plage',
+  'dune-crepuscule',
+  'capferret-phare',
+  'plage-pereire',
 ] as const;

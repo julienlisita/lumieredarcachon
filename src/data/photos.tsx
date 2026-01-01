@@ -25,9 +25,9 @@ export const PHOTOS: Photo[] = [
     label: 'Andernos — plage des américains',
   },
   {
-    id: 'dunes-crepuscule',
+    id: 'dune-crepuscule',
     src: '/photos/04.webp',
-    alt: 'Crépuscule sur le dune du pilat',
+    alt: 'Crépuscule sur la dune du pilat',
     label: 'Dune du pilat — Crépuscule',
   },
   {
