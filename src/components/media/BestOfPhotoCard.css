@@ -1,0 +1,99 @@
+/* src/components/media/BestOfPhotoCard.css */
+
+.bestof-card {
+  display: block;
+  border-radius: var(--card-radius);
+  overflow: hidden;
+  border: 1px solid var(--card-border);
+  background: var(--card-bg);
+  box-shadow: var(--card-shadow);
+  transition:
+    box-shadow 220ms ease,
+    transform 220ms ease;
+}
+
+.bestof-card:hover {
+  box-shadow: var(--card-shadow-hover);
+}
+
+/* aspect ratios (visual) */
+.bestof-aspect-hero {
+  aspect-ratio: 4 / 3;
+}
+.bestof-aspect-square {
+  aspect-ratio: 1 / 1;
+}
+.bestof-aspect-43 {
+  aspect-ratio: 4 / 3;
+}
+.bestof-aspect-pano {
+  aspect-ratio: 16 / 7;
+}
+
+.bestof-media {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.bestof-img {
+  object-fit: cover;
+  transform: scale(1);
+  transition: transform 340ms ease;
+}
+
+.bestof-card:hover .bestof-img {
+  transform: scale(1.03);
+}
+
+.bestof-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0);
+  transition: background 220ms ease;
+}
+
+.bestof-card:hover .bestof-overlay {
+  background: rgba(0, 0, 0, 0.12);
+}
+
+/* caption glass */
+.bestof-caption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0.85rem 0.9rem;
+  transform: translateY(6px);
+  opacity: 0;
+  transition:
+    opacity 220ms ease,
+    transform 220ms ease;
+  pointer-events: none;
+}
+
+.bestof-card:hover .bestof-caption {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.bestof-label {
+  display: inline-flex;
+  max-width: 100%;
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-size: 0.85rem;
+  color: #fff;
+  background: rgba(15, 26, 32, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+  padding: 0.35rem 0.6rem;
+  backdrop-filter: blur(8px);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* dark minimal tweaks */
+html.dark .bestof-card:hover .bestof-overlay {
+  background: rgba(0, 0, 0, 0.2);
+}
