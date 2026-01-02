@@ -7,7 +7,7 @@ import { createPortal } from 'react-dom';
 import Image from 'next/image';
 import clsx from 'clsx';
 import { type Photo } from '@/data/photos';
-import './gallery.css';
+import './GalleryLightbox.css';
 
 type Props = {
   open: boolean;
