@@ -2,7 +2,7 @@
 
 'use client';
 
-import { useEffect, useRef, useMemo } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import Image from 'next/image';
 import clsx from 'clsx';
@@ -17,6 +17,8 @@ type Props = {
   onNext: () => void;
 };
 
+const ANIM_MS = 360;
+
 export default function GalleryLightbox({ open, photo, onClose, onPrev, onNext }: Props) {
   const closeBtnRef = useRef<HTMLButtonElement | null>(null);
 
@@ -25,10 +27,46 @@ export default function GalleryLightbox({ open, photo, onClose, onPrev, onNext }
     return document.getElementById('modal-root');
   }, []);
 
-  useEffect(() => {
-    if (!open) return;
+  const [mounted, setMounted] = useState(false);
+  const [visible, setVisible] = useState(false);
 
+  // ✅ Conserver la dernière photo affichée pour permettre l'animation de fermeture
+  const [displayPhoto, setDisplayPhoto] = useState<Photo | null>(null);
+
+  useEffect(() => {
+    if (open && photo) {
+      setDisplayPhoto(photo);
+    }
+  }, [open, photo]);
+
+  useEffect(() => {
+    if (!open) {
+      // start close animation
+      setVisible(false);
+
+      const t = window.setTimeout(() => {
+        setMounted(false);
+        setDisplayPhoto(null); // ✅ seulement après l'anim
+      }, ANIM_MS);
+
+      return () => window.clearTimeout(t);
+    }
+
+    // open: mount then animate next frame
+    setMounted(true);
+    const raf = window.requestAnimationFrame(() => setVisible(true));
+    return () => window.cancelAnimationFrame(raf);
+  }, [open]);
+
+  // Focus au moment où c'est visible
+  useEffect(() => {
+    if (!visible) return;
     closeBtnRef.current?.focus();
+  }, [visible]);
+
+  // Scroll lock + keyboard tant que la lightbox est montée (inclut la fermeture animée)
+  useEffect(() => {
+    if (!mounted) return;
 
     const prevOverflow = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
@@ -44,23 +82,18 @@ export default function GalleryLightbox({ open, photo, onClose, onPrev, onNext }
       window.removeEventListener('keydown', onKeyDown);
       document.body.style.overflow = prevOverflow;
     };
-  }, [open, onClose, onPrev, onNext]);
+  }, [mounted, onClose, onPrev, onNext]);
 
-  if (!open || !photo || !modalRoot) return null;
+  if (!mounted || !displayPhoto || !modalRoot) return null;
 
   return createPortal(
-    <div
-      className="lightbox-root"
-      role="dialog"
-      aria-modal="true"
-      aria-label="Photo en plein écran"
-    >
+    <div className={clsx('lightbox-root', visible && 'is-visible')} role="dialog" aria-modal="true">
       <button className="lightbox-backdrop" onClick={onClose} aria-label="Fermer" />
 
-      <div className="lightbox-panel">
+      <div className="lightbox-panel" aria-label="Photo en plein écran">
         <div className="lightbox-top">
           <div className="lightbox-caption">
-            <p className="lightbox-label">{photo.label ?? ''}</p>
+            <p className="lightbox-label">{displayPhoto.label ?? ''}</p>
           </div>
 
           <button
@@ -75,8 +108,8 @@ export default function GalleryLightbox({ open, photo, onClose, onPrev, onNext }
 
         <div className="lightbox-media">
           <Image
-            src={photo.src}
-            alt={photo.alt}
+            src={displayPhoto.src}
+            alt={displayPhoto.alt}
             fill
             className="lightbox-img"
             sizes="90vw"
@@ -85,14 +118,10 @@ export default function GalleryLightbox({ open, photo, onClose, onPrev, onNext }
         </div>
 
         <div className="lightbox-nav">
-          <button
-            className={clsx('lightbox-navbtn')}
-            onClick={onPrev}
-            aria-label="Photo précédente"
-          >
+          <button className="lightbox-navbtn" onClick={onPrev} aria-label="Photo précédente">
             ←
           </button>
-          <button className={clsx('lightbox-navbtn')} onClick={onNext} aria-label="Photo suivante">
+          <button className="lightbox-navbtn" onClick={onNext} aria-label="Photo suivante">
             →
           </button>
         </div>
