@@ -30,41 +30,35 @@ export default function GalleryLightbox({ open, photo, onClose, onPrev, onNext }
   const [mounted, setMounted] = useState(false);
   const [visible, setVisible] = useState(false);
 
-  // ✅ Conserver la dernière photo affichée pour permettre l'animation de fermeture
+  // ✅ Garder la dernière photo affichée pendant l’animation de fermeture
   const [displayPhoto, setDisplayPhoto] = useState<Photo | null>(null);
 
   useEffect(() => {
-    if (open && photo) {
-      setDisplayPhoto(photo);
-    }
+    if (open && photo) setDisplayPhoto(photo);
   }, [open, photo]);
 
   useEffect(() => {
     if (!open) {
-      // start close animation
       setVisible(false);
 
       const t = window.setTimeout(() => {
         setMounted(false);
-        setDisplayPhoto(null); // ✅ seulement après l'anim
+        setDisplayPhoto(null);
       }, ANIM_MS);
 
       return () => window.clearTimeout(t);
     }
 
-    // open: mount then animate next frame
     setMounted(true);
     const raf = window.requestAnimationFrame(() => setVisible(true));
     return () => window.cancelAnimationFrame(raf);
   }, [open]);
 
-  // Focus au moment où c'est visible
   useEffect(() => {
     if (!visible) return;
     closeBtnRef.current?.focus();
   }, [visible]);
 
-  // Scroll lock + keyboard tant que la lightbox est montée (inclut la fermeture animée)
   useEffect(() => {
     if (!mounted) return;
 
@@ -86,15 +80,25 @@ export default function GalleryLightbox({ open, photo, onClose, onPrev, onNext }
 
   if (!mounted || !displayPhoto || !modalRoot) return null;
 
+  const titleId = 'lightbox-title';
+  const descId = 'lightbox-desc';
+
   return createPortal(
-    <div className={clsx('lightbox-root', visible && 'is-visible')} role="dialog" aria-modal="true">
+    <div
+      className={clsx('lightbox-root', visible && 'is-visible')}
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby={titleId}
+      aria-describedby={displayPhoto.description ? descId : undefined}
+    >
       <button className="lightbox-backdrop" onClick={onClose} aria-label="Fermer" />
 
-      <div className="lightbox-panel" aria-label="Photo en plein écran">
+      <div className="lightbox-panel">
+        {/* Top bar (léger) */}
         <div className="lightbox-top">
-          <div className="lightbox-caption">
-            <p className="lightbox-label">{displayPhoto.label ?? ''}</p>
-          </div>
+          <p id={titleId} className="lightbox-label">
+            {displayPhoto.label ?? ''}
+          </p>
 
           <button
             ref={closeBtnRef}
@@ -106,6 +110,7 @@ export default function GalleryLightbox({ open, photo, onClose, onPrev, onNext }
           </button>
         </div>
 
+        {/* Photo */}
         <div className="lightbox-media">
           <Image
             src={displayPhoto.src}
@@ -117,13 +122,30 @@ export default function GalleryLightbox({ open, photo, onClose, onPrev, onNext }
           />
         </div>
 
-        <div className="lightbox-nav">
-          <button className="lightbox-navbtn" onClick={onPrev} aria-label="Photo précédente">
-            ←
-          </button>
-          <button className="lightbox-navbtn" onClick={onNext} aria-label="Photo suivante">
-            →
-          </button>
+        {/* Bottom info + nav */}
+        <div className="lightbox-bottom">
+          <div className="lightbox-caption">
+            {displayPhoto.location && (
+              <div className="lightbox-meta">
+                <span className="lightbox-chip">{displayPhoto.location}</span>
+              </div>
+            )}
+
+            {displayPhoto.description && (
+              <p id={descId} className="lightbox-desc">
+                {displayPhoto.description}
+              </p>
+            )}
+          </div>
+
+          <div className="lightbox-nav">
+            <button className="lightbox-navbtn" onClick={onPrev} aria-label="Photo précédente">
+              ←
+            </button>
+            <button className="lightbox-navbtn" onClick={onNext} aria-label="Photo suivante">
+              →
+            </button>
+          </div>
         </div>
       </div>
     </div>,
