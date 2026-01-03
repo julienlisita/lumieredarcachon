@@ -1,9 +1,9 @@
 // src/components/home/Hero.tsx
 
 import Button from '@/components/ui/Button';
-import PageTitle from '@/components/ui/PageTitle';
 import './Hero.css';
 import Image from 'next/image';
+import heroImage from '../../../public/images/home/hero.webp';
 
 export default function Hero({ showBackground = true }: { showBackground?: boolean }) {
   return (
@@ -12,12 +12,14 @@ export default function Hero({ showBackground = true }: { showBackground?: boole
       {showBackground && (
         <div className="hero-bg" aria-hidden="true">
           <Image
-            src="/images/home/hero.webp"
+            src={heroImage}
             alt=""
             fill
             priority
             sizes="100vw"
             className="hero-bg__img"
+            placeholder="blur"
+            quality={80}
           />
           <div className="hero-bg__overlay" />
         </div>
