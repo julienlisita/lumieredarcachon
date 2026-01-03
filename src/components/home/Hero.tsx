@@ -9,7 +9,7 @@ export default function Hero() {
   const showBackground = true;
 
   return (
-    <section className="hero-section">
+    <section className="hero-section" aria-labelledby="home-hero-title">
       {/* Background */}
       {showBackground && (
         <div className="hero-bg" aria-hidden="true">
@@ -38,7 +38,7 @@ export default function Hero() {
           />
         </div>
 
-        <PageTitle className="text-center md:text-left" color="inherit">
+        <PageTitle id="home-hero-title" className="text-center md:text-left" color="inherit">
           Instants, reflets et horizons du Bassin d’Arcachon
         </PageTitle>
 
