@@ -46,7 +46,11 @@ export default function Hero({ showBackground = true }: { showBackground?: boole
           <Button variant="primary" href="/galerie">
             Découvrir la galerie
           </Button>
-          <Button variant="glasslight" href="https://www.instagram.com/julienlisita/">
+          <Button
+            variant="glasslight"
+            href="https://www.instagram.com/julienlisita/"
+            target="_blank"
+          >
             Voir sur Instagram
           </Button>
         </div>
