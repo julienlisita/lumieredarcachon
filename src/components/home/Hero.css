@@ -27,7 +27,7 @@
   position: absolute;
   inset: 0;
   z-index: 1;
-  background: rgba(0, 0, 0, 0.6); /* ou var(--color-overlay-bg) si tu veux */
+  background: var(--color-overlay-bg);
 }
 
 /* Content above bg/overlay */
