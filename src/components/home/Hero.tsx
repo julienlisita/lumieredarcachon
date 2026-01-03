@@ -5,9 +5,7 @@ import PageTitle from '@/components/ui/PageTitle';
 import './Hero.css';
 import Image from 'next/image';
 
-export default function Hero() {
-  const showBackground = true;
-
+export default function Hero({ showBackground = true }: { showBackground?: boolean }) {
   return (
     <section className="hero-section" aria-labelledby="home-hero-title">
       {/* Background */}
