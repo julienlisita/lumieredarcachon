@@ -10,25 +10,23 @@ export default function Hero() {
 
   return (
     <section className="hero-section">
-      {/* Image de fond */}
+      {/* Background */}
       {showBackground && (
-        <>
-          <div className="absolute inset-0 -z-10">
-            <Image
-              src="/images/home/hero.webp"
-              alt=""
-              fill
-              priority
-              sizes="100vw"
-              className="object-cover object-center"
-            />
-          </div>
-          {/* Overlay noir avec opacité */}
-          <div className="absolute inset-0 bg-black/60" />
-        </>
+        <div className="hero-bg" aria-hidden="true">
+          <Image
+            src="/images/home/hero.webp"
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+            className="hero-bg__img"
+          />
+          <div className="hero-bg__overlay" />
+        </div>
       )}
+
+      {/* Content */}
       <div className="hero-container">
-        {/* Logo */}
         <div className="flex justify-center md:justify-start">
           <Image
             src="/images/logo-dark-mode.png"
@@ -36,17 +34,16 @@ export default function Hero() {
             width={300}
             height={300}
             sizes="300px"
+            priority
           />
         </div>
 
-        {/* Titre */}
-        <PageTitle className="text-center md:text-left">
+        <PageTitle className="text-center md:text-left" color="inherit">
           Instants, reflets et horizons du Bassin d’Arcachon
         </PageTitle>
 
-        {/* CTAs */}
         <div className="hero-actions">
-          <Button variant="primary" href="/gallery">
+          <Button variant="primary" href="/galerie">
             Découvrir la galerie
           </Button>
           <Button variant="glasslight" href="https://www.instagram.com/julienlisita/">

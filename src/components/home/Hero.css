@@ -1,34 +1,49 @@
 /* src/components/home/Hero.css */
 
-/* Layout (Tailwind via @apply) */
 .hero-section {
   @apply w-full flex flex-col justify-center text-center px-4;
-  min-height: calc(100vh - var(--header-offset));
-  background-image: url('/images/home/hero.webp');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  position: relative; /* IMPORTANT pour Image fill + overlay */
+  min-height: calc(100vh - var(--header-height, 64px)); /* fallback */
+  overflow: hidden;
+
+  background-color: var(--color-home-hero-bg);
+  color: var(--color-home-hero-fg);
 }
 
+/* Background layer */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero-bg__img {
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Overlay au-dessus de l'image mais sous le contenu */
+.hero-bg__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.6); /* ou var(--color-overlay-bg) si tu veux */
+}
+
+/* Content above bg/overlay */
 .hero-container {
-  @apply max-w-5xl mx-auto space-y-6 z-10 text-center md:text-left;
+  @apply max-w-5xl mx-auto space-y-6 text-center md:text-left;
+  position: relative;
+  z-index: 2; /* IMPORTANT sinon overlay peut masquer le contenu */
 }
 
 .hero-actions {
   @apply flex flex-col sm:flex-row items-center justify-center md:justify-start gap-3 sm:gap-4;
 }
 
-.hero-section {
-  background-color: var(--color-home-hero-bg);
-  color: var(--color-home-hero-fg);
-}
-
+/* (si tu réutilises hero-subtitle plus tard) */
 .hero-subtitle {
-  font-size: clamp(1rem, 0.95rem + 0.5vw, 1.25rem); /* ~ text-lg → text-xl */
+  font-size: clamp(1rem, 0.95rem + 0.5vw, 1.25rem);
   line-height: 1.6;
   color: var(--color-home-hero-subtitle);
-}
-
-.hero-container .page-title + .hero-subtitle {
-  margin-top: 0.25rem;
 }
