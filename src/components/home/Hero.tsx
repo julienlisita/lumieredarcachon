@@ -25,6 +25,10 @@ export default function Hero({ showBackground = true }: { showBackground?: boole
 
       {/* Content */}
       <div className="hero-container">
+        <h1 id="home-hero-title" className="sr-only">
+          Lumière d’Arcachon
+        </h1>
+
         <div className="flex justify-center md:justify-start">
           <Image
             src="/images/logo-dark-mode.png"
@@ -36,9 +40,7 @@ export default function Hero({ showBackground = true }: { showBackground?: boole
           />
         </div>
 
-        <PageTitle id="home-hero-title" className="text-center md:text-left" color="inherit">
-          Instants, reflets et horizons du Bassin d’Arcachon
-        </PageTitle>
+        <p className="hero-claim">Instants, reflets et horizons du Bassin d’Arcachon</p>
 
         <div className="hero-actions">
           <Button variant="primary" href="/galerie">

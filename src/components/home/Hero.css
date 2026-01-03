@@ -41,9 +41,17 @@
   @apply flex flex-col sm:flex-row items-center justify-center md:justify-start gap-3 sm:gap-4;
 }
 
-/* (si tu réutilises hero-subtitle plus tard) */
-.hero-subtitle {
-  font-size: clamp(1rem, 0.95rem + 0.5vw, 1.25rem);
-  line-height: 1.6;
-  color: var(--color-home-hero-subtitle);
+.hero-claim {
+  font-family: var(--font-playfair), system-ui, sans-serif;
+  font-weight: 600;
+  font-size: clamp(1.9rem, 1.6rem + 1.4vw, 3.1rem);
+  letter-spacing: 0.01em;
+  line-height: 1.2;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .hero-claim {
+    text-align: left;
+  }
 }
