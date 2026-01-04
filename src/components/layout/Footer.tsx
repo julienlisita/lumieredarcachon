@@ -57,7 +57,7 @@ export default function Footer() {
       {/* Bloc inférieur */}
       <div className="footer-bottom">
         <p className="footer-copy">
-          © 2025 Compagnie Care & Services – Entreprise d’aide à domicile
+          © 2026 Lumière d’Arcachon — Photographies et contenus par Julien Lisita.
         </p>
         <nav className="footer-legal">
           <Link href="/legal/imprint">Mentions légales</Link>
