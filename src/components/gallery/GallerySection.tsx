@@ -11,9 +11,15 @@ import { PHOTOS } from '@/data/photos';
 import GalleryGrid from './GalleryGrid';
 import GalleryLightbox from './GalleryLightbox';
 import GalleryFilters from './GalleryFilters';
+import GalleryPagination from './GalleryPagination';
 import { AMBIANCE_FILTERS } from '@/data/ambiences';
 
 const uniq = (arr: string[]) => Array.from(new Set(arr)).filter(Boolean);
+const PAGE_SIZE = 12; // ajuste comme tu veux
+
+function clamp(n: number, min: number, max: number) {
+  return Math.max(min, Math.min(max, n));
+}
 
 export default function GallerySection() {
   const params = useSearchParams();
@@ -26,7 +32,6 @@ export default function GallerySection() {
   // options de filtres (provenant des données)
   const ambiances = useMemo(() => {
     const present = new Set(PHOTOS.flatMap((p) => p.tags ?? []));
-    // n'affiche que les ambiances "officielles" présentes dans tes données
     return AMBIANCE_FILTERS.filter((a) => present.has(a));
   }, []);
 
@@ -41,6 +46,23 @@ export default function GallerySection() {
     });
   }, [activeAmbiance, activeLieu]);
 
+  // pagination
+  const totalPages = useMemo(() => {
+    return Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
+  }, [filtered.length]);
+
+  const page = useMemo(() => {
+    const raw = Number(params.get('page') ?? '1');
+    const safe = Number.isFinite(raw) && raw > 0 ? raw : 1;
+    return clamp(safe, 1, totalPages);
+  }, [params, totalPages]);
+
+  const pageItems = useMemo(() => {
+    const start = (page - 1) * PAGE_SIZE;
+    return filtered.slice(start, start + PAGE_SIZE);
+  }, [filtered, page]);
+
+  // index lightbox dans la liste filtrée complète (pas seulement la page)
   const activeIndex = useMemo(() => {
     if (!activeId) return -1;
     return filtered.findIndex((p) => p.id === activeId);
@@ -48,7 +70,7 @@ export default function GallerySection() {
 
   const isOpen = activeIndex >= 0;
 
-  // Garde les filtres (ambiance/lieu) dans l'URL quand on ouvre/ferme la lightbox
+  // qsBase conserve les filtres + page quand on ouvre/ferme
   const qsBase = useMemo(() => {
     const q = new URLSearchParams(params.toString());
     q.delete('photo');
@@ -77,6 +99,15 @@ export default function GallerySection() {
     });
   };
 
+  // helpers pour changer de page en gardant les filtres (et en fermant la lightbox)
+  const pushPage = (nextPage: number) => {
+    const q = new URLSearchParams(params.toString());
+    q.delete('photo'); // ferme la lightbox si ouverte
+    q.set('page', String(clamp(nextPage, 1, totalPages)));
+    const s = q.toString();
+    router.push(`/gallery${s ? `?${s}` : ''}`, { scroll: false });
+  };
+
   return (
     <Section labelledBy="gallery-title" describedBy="gallery-subtitle">
       <SectionWrapper>
@@ -84,7 +115,7 @@ export default function GallerySection() {
           align="left"
           eyebrow="Galerie"
           title="Toutes les photos"
-          subtitle="Filtre par ambiance ou par lieu, et ouvre une photo en plein écran."
+          subtitle="Filtre par ambiance ou par lieu, puis explore la série."
           titleId="gallery-title"
           subtitleId="gallery-subtitle"
         />
@@ -92,10 +123,17 @@ export default function GallerySection() {
         <GalleryFilters ambiances={ambiances} locations={locations} />
 
         <p className="font-ui text-sm" style={{ color: 'var(--color-muted)' }}>
-          {filtered.length} photo{filtered.length > 1 ? 's' : ''}
+          {filtered.length} photo{filtered.length > 1 ? 's' : ''} — page {page}/{totalPages}
         </p>
 
-        <GalleryGrid photos={filtered} onOpen={open} />
+        <GalleryGrid photos={pageItems} onOpen={open} />
+
+        <GalleryPagination
+          page={page}
+          totalPages={totalPages}
+          onPrev={() => pushPage(page - 1)}
+          onNext={() => pushPage(page + 1)}
+        />
 
         <GalleryLightbox
           open={isOpen}

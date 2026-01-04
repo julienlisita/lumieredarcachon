@@ -21,6 +21,7 @@ function updateParams(params: URLSearchParams, patch: Record<string, string | nu
 
   // si on filtre, on ferme la lightbox
   next.delete('photo');
+  next.delete('page');
 
   const qs = next.toString();
   return qs ? `?${qs}` : '';
