@@ -4,9 +4,11 @@ export type Photo = {
   id: string;
   src: string;
   alt: string;
+  area: string;
   label?: string;
   description?: string;
   location?: string;
+  tags?: string[];
   date?: string;
 };
 
@@ -16,9 +18,10 @@ export const PHOTOS: Photo[] = [
     src: '/photos/01.webp',
     alt: 'Vue de la plage de la Chapelle au Cap Ferret',
     label: 'Cap Ferret — entre dune et pins',
+    area: 'Lège-Cap-Ferret',
     description:
       'Depuis la dune, la plage de la Chapelle se dévoile doucement, encadrée par les pins et la lumière du Bassin.',
-    location: 'Plage de la Chapelle, Lège-Cap-Ferret',
+    location: 'Plage de la Chapelle',
     date: '2024-06',
   },
   {
@@ -26,9 +29,10 @@ export const PHOTOS: Photo[] = [
     src: '/photos/02.webp',
     alt: 'Reflets et lumière sur L’Escalumade à marée basse',
     label: 'L’Escalumade — lignes de marée',
+    area: 'Plage de la Croix des Marins (Claouey)',
     description:
       'À marée basse, L’Escalumade se transforme en un jeu de reflets et de lignes dessinées par l’eau.',
-    location: 'Plage de la Croix des Marins, Claouey, Lège-Cap-Ferret',
+    location: 'Lège-Cap-Ferret',
     date: '2024-05',
   },
   {
@@ -36,9 +40,10 @@ export const PHOTOS: Photo[] = [
     src: '/photos/03.webp',
     alt: 'Plage des Quinconces à Andernos-les-Bains',
     label: 'Andernos — plage des Quinconces',
+    area: 'Andernos-les-Bains',
     description:
       'Une plage paisible à Andernos, où le Bassin révèle son visage le plus calme et lumineux.',
-    location: 'Plage des Quinconces, Andernos-les-Bains',
+    location: 'Plage des Quinconces',
     date: '2024-05',
   },
   {
@@ -46,9 +51,10 @@ export const PHOTOS: Photo[] = [
     src: '/photos/04.webp',
     alt: 'Crépuscule sur la dune du Pilat',
     label: 'Dune du Pilat — crépuscule',
+    area: 'La Teste-de-Buch',
     description:
       'Au sommet de la dune, le jour s’efface lentement, laissant place aux teintes chaudes du crépuscule.',
-    location: 'Dune du Pilat, Pyla-sur-Mer, La Teste-de-Buch',
+    location: 'Dune du Pilat',
     date: '2024-07',
   },
   {
@@ -56,9 +62,10 @@ export const PHOTOS: Photo[] = [
     src: '/photos/05.webp',
     alt: 'Vue depuis le phare du Cap Ferret vers la dune du Pilat',
     label: 'Cap Ferret — vue du phare',
+    area: 'Lège-Cap-Ferret',
     description:
       'Depuis le phare du Cap Ferret, le regard se porte au loin, jusqu’à la silhouette de la dune du Pilat.',
-    location: 'Phare du Cap Ferret, Lège-Cap-Ferret',
+    location: 'Phare du Cap Ferret',
     date: '2024-04',
   },
   {
@@ -66,9 +73,10 @@ export const PHOTOS: Photo[] = [
     src: '/photos/06.webp',
     alt: 'Chevaux sur la plage Pereire à Arcachon',
     label: 'Arcachon — plage Pereire',
+    area: 'Arcachon',
     description:
       'Un instant suspendu sur la plage Pereire, où les chevaux avancent face à l’horizon du Bassin.',
-    location: 'Plage Pereire, Arcachon',
+    location: 'Plage Pereire',
     date: '2024-06',
   },
 ];
