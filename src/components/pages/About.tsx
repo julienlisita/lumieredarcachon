@@ -24,7 +24,7 @@ export default function About() {
         primaryLabel="Me contacter"
         primaryHref="/contact"
         secondaryLabel="Instagram"
-        secondaryHref="https://instagram.com/TON_COMPTE"
+        secondaryHref="https://instagram.com/julienlisita"
       />
     </main>
   );
