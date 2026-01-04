@@ -45,7 +45,7 @@ export default function Hero({ showBackground = true }: { showBackground?: boole
         <p className="hero-claim">Instants, reflets et horizons du Bassin d’Arcachon</p>
 
         <div className="hero-actions">
-          <Button variant="primary" href="/galerie">
+          <Button variant="primary" href="/gallery">
             Découvrir la galerie
           </Button>
           <Button
