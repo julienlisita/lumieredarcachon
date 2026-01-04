@@ -42,19 +42,19 @@ const AMBIANCES: ExploreItem[] = [
   {
     title: 'Aurores',
     description: 'Premières couleurs, calme du matin.',
-    href: '/galerie?tag=aurores',
+    href: '/gallery?ambiance=aurores',
     icon: '🌅',
   },
   {
     title: 'Reflets',
     description: 'Miroirs d’eau, textures et marées.',
-    href: '/galerie?tag=reflets',
+    href: '/gallery?ambiance=reflets',
     icon: '🌊',
   },
   {
     title: 'Brumes',
     description: 'Ambiances feutrées et silencieuses.',
-    href: '/galerie?tag=brumes',
+    href: '/gallery?ambiance=brumes',
     icon: '🌫️',
   },
 ];
@@ -63,19 +63,19 @@ const LIEUX: ExploreItem[] = [
   {
     title: 'Arcachon',
     description: 'Jetées, ville, lumières du front de mer.',
-    href: '/galerie?lieu=arcachon',
+    href: '/gallery?lieu=Arcachon',
     icon: '📍',
   },
   {
     title: 'Dune du Pilat',
     description: 'Courbes, vents, horizons immenses.',
-    href: '/galerie?lieu=pilat',
+    href: '/gallery?lieu=La+Teste-de-Buch',
     icon: '🏜️',
   },
   {
     title: 'Cap Ferret',
     description: 'Villages, pins, bassin et océan.',
-    href: '/galerie?lieu=cap-ferret',
+    href: '/gallery?lieu=Lège-Cap-Ferret',
     icon: '⛵',
   },
 ];
