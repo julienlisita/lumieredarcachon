@@ -56,7 +56,7 @@ export default function Cta({
         <div className={actionsAlign}>
           {primaryHref && primaryLabel && <Button href={primaryHref}>{primaryLabel}</Button>}
           {secondaryHref && secondaryLabel && (
-            <Button href={secondaryHref} variant="secondary">
+            <Button href={secondaryHref} variant="glasslight">
               {secondaryLabel}
             </Button>
           )}

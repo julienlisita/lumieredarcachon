@@ -4,7 +4,7 @@ import clsx from 'clsx';
 import Button from '@/components/ui/Button';
 import { flexAlignResponsive } from '@/utils/align';
 
-type CTA = { label: string; href: string; variant?: 'primary' | 'secondary' };
+type CTA = { label: string; href: string; variant?: 'primary' | 'secondary' | 'glasslight' };
 
 type Props = {
   items?: CTA[];

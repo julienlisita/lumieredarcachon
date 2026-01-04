@@ -87,7 +87,7 @@ export default function SplitSection({
                   </Button>
                 )}
                 {secondaryCtaLabel && secondaryCtaHref && (
-                  <Button href={secondaryCtaHref} variant="secondary">
+                  <Button href={secondaryCtaHref} variant="glasslight">
                     {secondaryCtaLabel}
                   </Button>
                 )}

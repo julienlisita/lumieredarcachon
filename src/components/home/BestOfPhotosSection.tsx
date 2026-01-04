@@ -102,7 +102,7 @@ export default function BestOfPhotosSection({ photos }: Props) {
           {/* CTA mobile */}
           <ActionsStack
             align="left"
-            items={[{ label: 'Voir toute la galerie', href: '/galerie', variant: 'secondary' }]}
+            items={[{ label: 'Voir toute la galerie', href: '/gallery', variant: 'primary' }]}
             className="sm:hidden"
           />
         </div>
