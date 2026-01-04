@@ -4,20 +4,18 @@ import { Mail } from 'lucide-react';
 import PageHero from '../patterns/PageHero';
 import ContactFormSection from '../contact/ContactFormSection';
 import ContactInfoSection from '../contact/ContactInfoSection';
-import LocationSection from '../contact/LocationSection';
 
 export default function Contact() {
   return (
     <div>
       <PageHero
         icon={<Mail size={40} />}
-        title="Contactez-nous"
-        subtitle="Besoin d’informations ou d’un devis ? Nous sommes à votre écoute."
-        align="center"
+        title="Me contacter"
+        subtitle="Une question, un échange autour du Bassin, ou simplement un mot ?"
+        align="left"
       />
       <ContactFormSection />
       <ContactInfoSection />
-      <LocationSection align="left" />
     </div>
   );
 }

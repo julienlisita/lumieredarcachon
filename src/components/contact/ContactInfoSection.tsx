@@ -11,10 +11,10 @@ export default function ContactInfoSection() {
     <Section>
       <SectionWrapper>
         <HeaderBlock
-          eyebrow="Contact"
-          title="Nos coordonnées"
-          subtitle="Joignez-nous par téléphone, email, ou venez nous voir."
-          align="center"
+          eyebrow="Coordonnées"
+          title="Me retrouver"
+          subtitle="Email, Instagram, et quelques infos pratiques."
+          align="left"
         />
 
         <FeaturesGrid
