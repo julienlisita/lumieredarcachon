@@ -22,6 +22,7 @@ export const PHOTOS: Photo[] = [
     description:
       'Depuis la dune, la plage de la Chapelle se dévoile doucement, encadrée par les pins et la lumière du Bassin.',
     location: 'Plage de la Chapelle',
+    tags: ['plages', 'pins', 'lumiere-douce', 'horizons'],
     date: '2024-06',
   },
   {
@@ -29,10 +30,11 @@ export const PHOTOS: Photo[] = [
     src: '/photos/02.webp',
     alt: 'Reflets et lumière sur L’Escalumade à marée basse',
     label: 'L’Escalumade — lignes de marée',
-    area: 'Plage de la Croix des Marins (Claouey)',
+    area: 'Lège-Cap-Ferret',
     description:
       'À marée basse, L’Escalumade se transforme en un jeu de reflets et de lignes dessinées par l’eau.',
-    location: 'Lège-Cap-Ferret',
+    location: 'Plage de la Croix des Marins (Claouey)',
+    tags: ['marée-basse', 'reflets', 'lignes', 'eau'],
     date: '2024-05',
   },
   {
@@ -44,6 +46,7 @@ export const PHOTOS: Photo[] = [
     description:
       'Une plage paisible à Andernos, où le Bassin révèle son visage le plus calme et lumineux.',
     location: 'Plage des Quinconces',
+    tags: ['plages', 'lumiere-douce', 'ciel-calme', 'eau'],
     date: '2024-05',
   },
   {
@@ -55,6 +58,7 @@ export const PHOTOS: Photo[] = [
     description:
       'Au sommet de la dune, le jour s’efface lentement, laissant place aux teintes chaudes du crépuscule.',
     location: 'Dune du Pilat',
+    tags: ['dunes', 'crépuscules', 'lumiere-doree', 'horizons'],
     date: '2024-07',
   },
   {
@@ -66,6 +70,7 @@ export const PHOTOS: Photo[] = [
     description:
       'Depuis le phare du Cap Ferret, le regard se porte au loin, jusqu’à la silhouette de la dune du Pilat.',
     location: 'Phare du Cap Ferret',
+    tags: ['points-de-vue', 'horizons', 'lumiere-claire'],
     date: '2024-04',
   },
   {
@@ -77,6 +82,7 @@ export const PHOTOS: Photo[] = [
     description:
       'Un instant suspendu sur la plage Pereire, où les chevaux avancent face à l’horizon du Bassin.',
     location: 'Plage Pereire',
+    tags: ['plages', 'chevaux', 'horizons', 'lumiere-douce'],
     date: '2024-06',
   },
 ];
