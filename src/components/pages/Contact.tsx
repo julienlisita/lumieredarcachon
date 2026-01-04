@@ -12,7 +12,7 @@ export default function Contact() {
         icon={<Mail size={40} />}
         title="Me contacter"
         subtitle="Une question, un échange autour du Bassin, ou simplement un mot ?"
-        align="left"
+        align="center"
       />
       <ContactFormSection />
       <ContactInfoSection />

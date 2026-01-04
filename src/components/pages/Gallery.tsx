@@ -12,7 +12,7 @@ export default function Gallery() {
         icon={<ImageIcon size={40} />}
         title="Galerie"
         subtitle="Une sélection photographique autour des ambiances, des marées et des horizons du Bassin d’Arcachon."
-        align="left"
+        align="center"
       />
 
       <Suspense fallback={null}>
