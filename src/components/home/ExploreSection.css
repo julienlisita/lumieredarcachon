@@ -1,0 +1,77 @@
+/* src/components/home/ExploreSection.css */
+
+/* Sous-titres discrets (hiérarchie) */
+.explore-subhead {
+  @apply text-center lg:text-left;
+}
+
+.explore-kicker {
+  @apply font-ui uppercase tracking-widest text-xs;
+  color: var(--color-eyebrow);
+}
+
+.explore-mini-title {
+  @apply mt-1 font-subheading text-lg;
+  color: var(--color-section-title);
+}
+
+/* Card */
+.explore-card {
+  @apply relative flex items-start gap-4 p-5 sm:p-6;
+  border-radius: var(--card-radius);
+  background: var(--card-outlined-bg);
+  border: 1px solid var(--card-border);
+  box-shadow: var(--card-shadow);
+  transition:
+    transform 220ms ease,
+    box-shadow 220ms ease,
+    border-color 220ms ease;
+}
+
+.explore-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--card-shadow-hover);
+  border-color: var(--card-outlined-border);
+}
+
+.explore-card__icon {
+  @apply flex items-center justify-center shrink-0;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 999px;
+  background: var(--color-surface-soft);
+  border: 1px solid var(--color-border);
+  font-size: 1.1rem;
+}
+
+.explore-card__title {
+  @apply font-subheading text-base;
+  color: var(--card-title);
+}
+
+.explore-card__desc {
+  @apply mt-1 font-body text-sm leading-relaxed;
+  color: var(--color-muted);
+}
+
+.explore__arrow {
+  @apply ml-auto mt-1 text-lg;
+  color: var(--color-link);
+  transition:
+    transform 200ms ease,
+    color 200ms ease;
+}
+
+.explore-card:hover .explore__arrow {
+  transform: translateX(3px);
+  color: var(--color-link-hover);
+}
+
+/* CTA */
+.explore-cta {
+  @apply inline-flex items-center gap-2 font-ui text-sm;
+  color: var(--color-link);
+}
+.explore-cta:hover {
+  color: var(--color-link-hover);
+}
