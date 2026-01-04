@@ -11,7 +11,7 @@ import './Header.css';
 
 const NAV_ITEMS = [
   { href: '/', label: 'Accueil' },
-  { href: '/gallery', label: 'Gallery' },
+  { href: '/gallery', label: 'Galerie' },
   { href: '/blog', label: 'Articles' },
   { href: '/about', label: 'À propos' },
   { href: '/contact', label: 'Contact' },
