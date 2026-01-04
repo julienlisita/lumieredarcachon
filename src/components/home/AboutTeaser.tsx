@@ -1,44 +1,37 @@
 // src/components/home/AboutTeaser.tsx
 
-import SplitSection from '../patterns/SplitSection';
+import SplitSection from '@/components/patterns/SplitSection';
 
-type Props = {
-  className?: string;
-};
-
-export default function AboutTeaser({ className }: Props) {
+export default function AboutTeaser() {
   return (
     <SplitSection
-      // contenu
-      eyebrow="Notre mission"
-      title="Un accompagnement humain et personnalisé"
-      subtitle="La proximité est au cœur de nos valeurs"
+      eyebrow="À propos"
+      title="Un carnet de lumière, au fil des saisons"
+      subtitle="Photographier le Bassin, comprendre ses ambiances, et partager ce qui rend chaque instant unique."
+      imageSrc="/images/home/about-01.webp"
+      imageAlt="Ambiance douce sur le Bassin d’Arcachon"
+      reverse
+      aspect="portrait"
+      imageFit="cover"
+      tone="default"
+      ctaLabel="Découvrir la démarche"
+      ctaHref="/a-propos"
+      secondaryCtaLabel="Instagram"
+      secondaryCtaHref="https://instagram.com/TON_COMPTE"
       content={
         <>
-          Nous croyons à l’importance d’une approche centrée sur l’humain et la qualité. Chaque
-          projet est mené avec soin, professionnalisme et transparence, afin de bâtir une relation
-          de confiance et de répondre aux attentes réelles de nos partenaires et clients.
+          <p>
+            Je photographie le Bassin d’Arcachon comme on tient un carnet : au rythme des marées,
+            des brumes et des heures dorées. J’aime les instants calmes, les reflets, et les
+            variations de lumière qui transforment un lieu en quelques minutes.
+          </p>
+          <p className="mt-4">
+            Ce site est aussi un projet personnel de développement web — conçu et réalisé à la main
+            — pour relier mes séries, mes notes, et bientôt des ressources plus pratiques (spots,
+            conseils, et échanges entre passionnés).
+          </p>
         </>
       }
-      // image
-      imageSrc="/images/square-placeholder.png"
-      imageAlt="Accompagnement à domicile chaleureux"
-      // layout
-      reverse
-      aspect="square"
-      className={className ?? 'mt-8'}
-      // CTAs
-      ctaLabel="En savoir plus"
-      ctaHref="/about"
-      secondaryCtaLabel="Nous contacter"
-      secondaryCtaHref="/contact"
-    >
-      {/* Slot libre (liste de points forts) */}
-      <ul className="list-disc pl-6 text-left inline-block">
-        <li>Expertise et engagement</li>
-        <li>Accompagnement sur mesure</li>
-        <li>Vision tournée vers l’avenir</li>
-      </ul>
-    </SplitSection>
+    />
   );
 }
