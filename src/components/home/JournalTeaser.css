@@ -1,0 +1,63 @@
+/* src/components/home/JournalTeaser.css */
+
+.journal-card {
+  @apply p-6 sm:p-7 flex flex-col;
+  border-radius: var(--card-radius);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  box-shadow: var(--card-shadow);
+  transition:
+    transform 220ms ease,
+    box-shadow 220ms ease,
+    border-color 220ms ease;
+  min-height: 260px;
+}
+
+.journal-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--card-shadow-hover);
+  border-color: var(--card-outlined-border);
+}
+
+.journal-card__meta {
+  @apply flex items-center justify-between gap-3;
+}
+
+.journal-tag {
+  @apply font-ui text-xs uppercase tracking-widest px-3 py-1 rounded-full;
+  background: color-mix(in oklab, var(--color-primary) 20%, var(--color-surface));
+  border: 1px solid color-mix(in oklab, var(--color-primary) 30%, var(--color-border));
+  color: color-mix(in oklab, var(--color-text) 80%, var(--color-primary));
+}
+
+.journal-meta {
+  @apply font-ui text-xs;
+  color: var(--color-muted);
+}
+
+.journal-card__title {
+  @apply mt-4 font-subheading text-xl leading-snug;
+  color: var(--color-section-title);
+}
+
+.journal-card__excerpt {
+  @apply mt-3 font-body text-sm leading-relaxed;
+  color: var(--color-muted);
+}
+
+.journal-card__link {
+  @apply mt-auto inline-flex items-center gap-2 font-ui text-sm;
+  color: var(--color-link);
+}
+
+.journal-card__link:hover {
+  color: var(--color-link-hover);
+}
+
+.journal-cta {
+  @apply inline-flex items-center gap-2 font-ui text-sm;
+  color: var(--color-link);
+}
+.journal-cta:hover {
+  color: var(--color-link-hover);
+}
