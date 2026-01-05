@@ -5,14 +5,33 @@ import Section from '@/components/layout/Section';
 import SectionWrapper from '@/components/layout/SectionWrapper';
 import HeaderBlock from '@/components/patterns/HeaderBlock';
 import './ExploreSection.css';
-import Button from '../ui/Button';
 import ActionsStack from '../patterns/ActionsStack';
+import { Moon, Waves, Sunrise, MapPin, Mountain, Sailboat, LucideIcon } from 'lucide-react';
+const ICONS: Record<string, LucideIcon> = {
+  moon: Moon,
+  waves: Waves,
+  sunrise: Sunrise,
+  mappin: MapPin,
+  mountain: Mountain,
+  sailboat: Sailboat,
+};
 
+import { ElementType, ReactNode } from 'react';
+
+function renderIcon(icon: ElementType | ReactNode) {
+  if (typeof icon === 'function') {
+    const Icon = icon;
+    return <Icon size={20} aria-hidden="true" />;
+  }
+  return icon;
+}
+
+// ExploreItem
 type ExploreItem = {
   title: string;
   description: string;
   href: string;
-  icon: React.ReactNode;
+  iconKey: 'moon' | 'waves' | 'sunrise' | 'mappin' | 'mountain' | 'sailboat';
 };
 
 function Arrow() {
@@ -24,10 +43,12 @@ function Arrow() {
 }
 
 function ExploreCard({ item }: { item: ExploreItem }) {
+  const Icon = ICONS[item.iconKey];
+
   return (
     <Link href={item.href} className="explore-card">
       <div className="explore-card__icon" aria-hidden>
-        {item.icon}
+        {Icon ? <Icon size={20} strokeWidth={1.75} /> : null}
       </div>
 
       <div className="explore-card__body">
@@ -42,22 +63,22 @@ function ExploreCard({ item }: { item: ExploreItem }) {
 
 const AMBIANCES: ExploreItem[] = [
   {
-    title: 'Aurores',
-    description: 'Premières couleurs, calme du matin.',
-    href: '/gallery?ambiance=aurores',
-    icon: '🌅',
+    title: 'Crépuscule',
+    description: 'Dernières lueurs et couleurs changeantes  du soir.',
+    href: '/gallery?ambiance=crepuscules',
+    iconKey: 'moon',
   },
   {
-    title: 'Reflets',
+    title: 'Reflet',
     description: 'Miroirs d’eau, textures et marées.',
     href: '/gallery?ambiance=reflets',
-    icon: '🌊',
+    iconKey: 'waves',
   },
   {
-    title: 'Brumes',
-    description: 'Ambiances feutrées et silencieuses.',
-    href: '/gallery?ambiance=brumes',
-    icon: '🌫️',
+    title: 'Horizon',
+    description: 'Lignes lointaines et respiration du paysage.',
+    href: '/gallery?ambiance=horizons',
+    iconKey: 'sunrise',
   },
 ];
 
@@ -66,19 +87,19 @@ const LIEUX: ExploreItem[] = [
     title: 'Arcachon',
     description: 'Jetées, ville, lumières du front de mer.',
     href: '/gallery?lieu=Arcachon',
-    icon: '📍',
+    iconKey: 'mappin',
   },
   {
-    title: 'Dune du Pilat',
+    title: 'La Teste-de-Buch',
     description: 'Courbes, vents, horizons immenses.',
     href: '/gallery?lieu=La+Teste-de-Buch',
-    icon: '🏜️',
+    iconKey: 'mountain',
   },
   {
     title: 'Cap Ferret',
     description: 'Villages, pins, bassin et océan.',
     href: '/gallery?lieu=Lège-Cap-Ferret',
-    icon: '⛵',
+    iconKey: 'sailboat',
   },
 ];
 
@@ -129,15 +150,6 @@ export default function ExploreSection() {
           </div>
         </div>
 
-        {/* CTA  */}
-        {/* <div className="pt-2 text-center">
-          <Button
-            variant="primary"
-            href="/gallery"
-          >
-            Voir toute la galerie
-          </Button>
-        </div> */}
         <ActionsStack
           align="left"
           items={[{ label: 'Voir toute la galerie', href: '/gallery', variant: 'primary' }]}
