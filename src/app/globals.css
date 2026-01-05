@@ -66,8 +66,8 @@
   --color-header-bg: rgba(255, 255, 255, 0.85);
   --color-header-bg-blur: blur(8px);
   --color-header-text: var(--ink-900);
-  --color-header-hover: var(--brand-muted);
-  --color-header-active: var(--brand-accent);
+  --color-header-hover: var(--brand-accent);
+  --color-header-active: var(--ink-900);
   --color-header-border: rgba(0, 0, 0, 0.08);
   --color-header-icon: var(--ink-900);
   --color-header-mobile-hover: rgba(0, 0, 0, 0.04);
@@ -152,7 +152,7 @@
   /* Mobile menu (always light) */
   --color-mobilemenu-bg: rgba(255, 255, 255, 0.85);
   --color-mobilemenu-text: var(--ink-900);
-  --color-mobilemenu-hover: rgba(0, 0, 0, 0.04);
+  --color-mobilemenu-hover: var(--brand-accent);
   --color-mobilemenu-active-bg: rgba(0, 0, 0, 0.06);
   --color-mobilemenu-active-text: var(--ink-900);
 

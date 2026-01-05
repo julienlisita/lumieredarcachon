@@ -20,7 +20,7 @@
 }
 
 .theme-toggle:hover {
-  background-color: var(--color-header-mobile-hover);
+  color: var(--color-header-mobile-hover);
 }
 
 .theme-toggle:focus-visible {
@@ -96,7 +96,7 @@
 }
 
 .nav-link:hover {
-  background-color: var(--color-mobilemenu-hover);
+  color: var(--color-header-hover);
 }
 
 .nav-link[aria-current='page'] {
@@ -114,6 +114,10 @@
 
 .icon {
   color: var(--color-header-icon);
+}
+
+.icon:hover {
+  color: var(--color-header-hover);
 }
 
 .menu-toggle:focus-visible {
