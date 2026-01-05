@@ -16,8 +16,6 @@ export default function AboutTeaser() {
       tone="default"
       ctaLabel="Découvrir la démarche"
       ctaHref="/about"
-      secondaryCtaLabel="Instagram"
-      secondaryCtaHref="https://instagram.com/julienlisita"
       content={
         <>
           <p>
