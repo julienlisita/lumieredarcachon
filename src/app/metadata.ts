@@ -1,32 +1,36 @@
-// app/metadata.ts
+// src/app/metadata.ts
 
 export const metadata = {
-  title: 'Site Vitrine – Titre de votre entreprise',
+  title: "Lumière d’Arcachon — Photographie & instants du Bassin",
   description:
-    'Site vitrine professionnel pour mettre en valeur votre activité. Modèle personnalisable pour indépendants, TPE ou entreprises.',
-  metadataBase: new URL('https://www.exemple.com'),
+    "Un regard photographique sur le Bassin d’Arcachon : ambiances, reflets, dunes et horizons. Galerie, sélections et carnet de terrain.",
+  metadataBase: new URL('https://lumieredarcachon.fr'),
   alternates: {
     canonical: '/',
   },
   openGraph: {
-    title: 'Titre de votre entreprise',
-    description: 'Présentez votre entreprise avec un site moderne, clair et responsive.',
-    url: 'https://www.exemple.com',
+    title: "Lumière d’Arcachon — Photographie & instants du Bassin",
+    description:
+      "Explorez une sélection de photos du Bassin d’Arcachon : lumières, marées, dunes et atmosphères. Ouvrez la galerie et plongez dans l’univers.",
+    url: 'https://lumieredarcachon.fr',
+    siteName: "Lumière d’Arcachon",
     type: 'website',
+    locale: 'fr_FR',
     images: [
       {
-        url: 'https://www.exemple.com/og-image.jpg',
+        url: 'https://lumieredarcachon.fr/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Titre de votre entreprise',
+        alt: "Lumière d’Arcachon — Photographie du Bassin d’Arcachon",
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Titre de votre entreprise',
-    description: 'Site vitrine professionnel pour votre activité.',
-    images: ['https://www.exemple.com/og-image.jpg'],
+    title: "Lumière d’Arcachon",
+    description:
+      "Photographies du Bassin d’Arcachon : lumières, reflets, dunes et instants simples. Galerie & sélections.",
+    images: ['https://lumieredarcachon.fr/og-image.jpg'],
   },
   icons: {
     icon: [
@@ -39,5 +43,6 @@ export const metadata = {
   appleWebApp: {
     capable: true,
     statusBarStyle: 'default',
+    title: "Lumière d’Arcachon",
   },
 };
