@@ -5,6 +5,8 @@ import Section from '@/components/layout/Section';
 import SectionWrapper from '@/components/layout/SectionWrapper';
 import HeaderBlock from '@/components/patterns/HeaderBlock';
 import './ExploreSection.css';
+import Button from '../ui/Button';
+import ActionsStack from '../patterns/ActionsStack';
 
 type ExploreItem = {
   title: string;
@@ -92,7 +94,7 @@ export default function ExploreSection() {
           eyebrow="Explorer"
           title="Explorer le Bassin"
           subtitle="Une navigation rapide : trois ambiances et trois lieux pour entrer dans l’univers."
-          align="center"
+          align="left"
           titleId={titleId}
           subtitleId={subtitleId}
         />
@@ -127,12 +129,19 @@ export default function ExploreSection() {
           </div>
         </div>
 
-        {/* CTA discret */}
-        <div className="pt-2 text-center">
-          <Link href="/gallery" className="explore-cta">
-            Voir toute la galerie <span aria-hidden>→</span>
-          </Link>
-        </div>
+        {/* CTA  */}
+        {/* <div className="pt-2 text-center">
+          <Button
+            variant="primary"
+            href="/gallery"
+          >
+            Voir toute la galerie
+          </Button>
+        </div> */}
+        <ActionsStack
+          align="left"
+          items={[{ label: 'Voir toute la galerie', href: '/gallery', variant: 'primary' }]}
+        />
       </SectionWrapper>
     </Section>
   );
