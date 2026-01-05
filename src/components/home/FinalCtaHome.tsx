@@ -11,7 +11,7 @@ export default function FinalCtaHome() {
       primaryHref="https://instagram.com/TON_COMPTE"
       secondaryLabel="Voir la galerie"
       secondaryHref="/gallery"
-      align="center"
+      align="left"
     />
   );
 }
