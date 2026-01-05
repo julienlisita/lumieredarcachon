@@ -3,7 +3,12 @@
 import Button from '@/components/ui/Button';
 
 export const metadata = {
-  title: 'Message envoyé – Nom de la société',
+  title: 'Message envoyé — Lumière d’Arcachon',
+  description:
+    'Votre message a bien été envoyé à Lumière d’Arcachon. Merci pour votre intérêt et votre prise de contact.',
+  alternates: {
+    canonical: 'https://www.lumieredarcachon.fr/thank-you',
+  },
 };
 
 export default function ThankYouPage() {

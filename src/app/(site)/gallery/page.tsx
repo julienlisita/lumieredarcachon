@@ -3,11 +3,11 @@
 import Gallery from '@/components/pages/Gallery';
 
 export const metadata = {
-  title: 'Galerie photo – Lumière d’Arcachon',
+  title: 'Galerie — Lumière d’Arcachon',
   description:
-    'Découvrez ma galerie photo : paysages du Bassin d’Arcachon, ambiances naturelles, lumières marines et instants capturés avec sensibilité.',
+    'Explorez la galerie photo de Lumière d’Arcachon : ambiances, lumières marines, dunes et instants capturés autour du Bassin d’Arcachon.',
   alternates: {
-    canonical: 'https://www.lumiere-arcachon.fr/gallery',
+    canonical: 'https://www.lumieredarcachon.fr/gallery',
   },
 };
 

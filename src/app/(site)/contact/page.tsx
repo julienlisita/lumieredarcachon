@@ -3,11 +3,11 @@
 import Contact from '@/components/pages/Contact';
 
 export const metadata = {
-  title: 'Contact – Lumière d’Arcachon',
+  title: 'Contact — Lumière d’Arcachon',
   description:
-    'Une question, un projet photo ou une collaboration ? Contactez moi pour échanger autour de vos envies et de votre univers.',
+    'Une question, un message ou une envie d’échange autour du Bassin d’Arcachon ? Contactez Lumière d’Arcachon pour toute demande ou collaboration.',
   alternates: {
-    canonical: 'https://www.lumieres-arcachon.fr/contact',
+    canonical: 'https://www.lumieredarcachon.fr/contact',
   },
 };
 
