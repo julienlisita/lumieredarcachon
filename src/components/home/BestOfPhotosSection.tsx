@@ -55,14 +55,6 @@ export default function BestOfPhotosSection({ photos }: Props) {
               subtitleId={subtitleId}
               className="mb-0"
             />
-
-            {/* CTA desktop uniquement */}
-            <Link
-              href="/gallery"
-              className="hidden sm:inline-flex font-ui text-sm text-[color:var(--color-link)] hover:text-[color:var(--color-link-hover)] transition-colors"
-            >
-              Voir toute la galerie <span aria-hidden>→</span>
-            </Link>
           </div>
 
           {/* Grid premium */}
@@ -99,11 +91,10 @@ export default function BestOfPhotosSection({ photos }: Props) {
             />
           </div>
 
-          {/* CTA mobile */}
+          {/* CTA  */}
           <ActionsStack
             align="left"
             items={[{ label: 'Voir toute la galerie', href: '/gallery', variant: 'primary' }]}
-            className="sm:hidden"
           />
         </div>
       </SectionWrapper>
