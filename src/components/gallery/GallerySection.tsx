@@ -11,8 +11,8 @@ import { PHOTOS } from '@/data/photos';
 import GalleryGrid from './GalleryGrid';
 import GalleryLightbox from './GalleryLightbox';
 import GalleryFilters from './GalleryFilters';
-import GalleryPagination from './GalleryPagination';
 import { AMBIANCE_FILTERS } from '@/data/ambiences';
+import Pagination from '../navigation/Pagination';
 
 const uniq = (arr: string[]) => Array.from(new Set(arr)).filter(Boolean);
 const PAGE_SIZE = 12; // ajuste comme tu veux
@@ -128,7 +128,7 @@ export default function GallerySection() {
 
         <GalleryGrid photos={pageItems} onOpen={open} />
 
-        <GalleryPagination
+        <Pagination
           page={page}
           totalPages={totalPages}
           onPrev={() => pushPage(page - 1)}
