@@ -4,6 +4,7 @@ import { PenSquare } from 'lucide-react';
 import PageHero from '../patterns/PageHero';
 import JournalListSection from '../journal/JournalListSection';
 import Cta from '../patterns/Cta';
+import { Suspense } from 'react';
 
 export default function Journal() {
   return (
@@ -15,7 +16,9 @@ export default function Journal() {
         align="center"
       />
 
-      <JournalListSection />
+      <Suspense fallback={<div className="px-4 sm:px-8 lg:px-24 xl:px-32 py-12">Chargement…</div>}>
+        <JournalListSection />
+      </Suspense>
 
       <Cta
         title="Vous souhaitez collaborer avec nous ?"
