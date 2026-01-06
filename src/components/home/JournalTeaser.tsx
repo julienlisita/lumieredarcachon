@@ -5,6 +5,7 @@ import Section from '@/components/layout/Section';
 import SectionWrapper from '@/components/layout/SectionWrapper';
 import HeaderBlock from '@/components/patterns/HeaderBlock';
 import './JournalTeaser.css';
+import ActionsStack from '../patterns/ActionsStack';
 
 type PostTeaser = {
   slug: string;
@@ -76,7 +77,7 @@ export default function JournalTeaser() {
           eyebrow="Carnet"
           title="Derniers articles"
           subtitle="Spots, ambiances et conseils photo — un format court, au rythme du Bassin."
-          align="center"
+          align="left"
           titleId={titleId}
           subtitleId={subtitleId}
         />
@@ -87,11 +88,10 @@ export default function JournalTeaser() {
           ))}
         </div>
 
-        <div className="pt-2 text-center">
-          <Link href="/blog" className="journal-cta">
-            Voir tout le carnet <span aria-hidden>→</span>
-          </Link>
-        </div>
+        <ActionsStack
+          align="left"
+          items={[{ label: ' Voir tout le carnet', href: '/journal', variant: 'primary' }]}
+        />
       </SectionWrapper>
     </Section>
   );
