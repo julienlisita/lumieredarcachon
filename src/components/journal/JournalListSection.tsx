@@ -1,9 +1,16 @@
-export default function BlogListSection() {
-  return (
-    <section className="py-16 px-4">
-      <div className="max-w-5xl mx-auto">
-        <h2 className="text-3xl font-bold mb-8">Derniers articles</h2>
+// src/components/blog/JournalListSection.tsx
 
+import clsx from 'clsx';
+import Section from '../layout/Section';
+import SectionWrapper from '../layout/SectionWrapper';
+import HeaderBlock from '../patterns/HeaderBlock';
+import './JournalListSection.css';
+
+export default function JournalListSection() {
+  return (
+    <Section className={clsx('blog-list-section')}>
+      <SectionWrapper>
+        <HeaderBlock title="Derniers Articles" align="left" />
         {/* Placeholder : cards d’articles */}
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           <div className="p-6 border rounded-lg shadow-sm hover:shadow-md transition">
@@ -13,10 +20,8 @@ export default function BlogListSection() {
               Lire l’article →
             </a>
           </div>
-
-          {/* Duplique ou remplace par une liste dynamique plus tard */}
         </div>
-      </div>
-    </section>
+      </SectionWrapper>
+    </Section>
   );
 }

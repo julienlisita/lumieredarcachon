@@ -1,6 +1,6 @@
-// src/app/(site)/blog/page.tsx
+// src/app/(site)/journal/page.tsx
 
-import Blog from '@/components/pages/Blog';
+import Journal from '@/components/pages/Journal';
 
 export const metadata = {
   title: 'Blog – Lumière d’Arcachon',
@@ -12,5 +12,5 @@ export const metadata = {
 };
 
 export default function BlogPage() {
-  return <Blog />;
+  return <Journal />;
 }

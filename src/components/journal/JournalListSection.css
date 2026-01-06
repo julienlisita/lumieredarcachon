@@ -1,0 +1,6 @@
+/* src/components/journal/JournalListSection.css */
+
+.blog-list-section {
+  /* Fond section */
+  background-color: var(--color-contact-bg);
+}

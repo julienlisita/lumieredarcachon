@@ -2,10 +2,10 @@
 
 import { PenSquare } from 'lucide-react';
 import PageHero from '../patterns/PageHero';
-import BlogListSection from '../blog/BlogListSection';
+import JournalListSection from '../journal/JournalListSection';
 import Cta from '../patterns/Cta';
 
-export default function Blog() {
+export default function Journal() {
   return (
     <div>
       <PageHero
@@ -15,7 +15,7 @@ export default function Blog() {
         align="center"
       />
 
-      <BlogListSection />
+      <JournalListSection />
 
       <Cta
         title="Vous souhaitez collaborer avec nous ?"
