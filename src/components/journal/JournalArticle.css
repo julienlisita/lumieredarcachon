@@ -1,0 +1,97 @@
+/* src/components/journal/JournalArticle.css */
+
+.journal-article__top {
+  @apply mb-6;
+}
+
+.journal-article__back {
+  @apply inline-flex items-center gap-2 font-ui text-sm;
+  color: var(--color-link);
+}
+.journal-article__back:hover {
+  color: var(--color-link-hover);
+}
+
+.journal-article__header {
+  @apply max-w-3xl;
+}
+
+.journal-article__tag {
+  @apply inline-flex font-ui text-xs uppercase tracking-widest px-3 py-1 rounded-full;
+  background: color-mix(in oklab, var(--color-primary) 20%, var(--color-surface));
+  border: 1px solid color-mix(in oklab, var(--color-primary) 30%, var(--color-border));
+  color: color-mix(in oklab, var(--color-text) 80%, var(--color-primary));
+}
+
+.journal-article__title {
+  @apply mt-4 text-3xl sm:text-4xl leading-tight;
+  font-family: var(--font-playfair), serif;
+  color: var(--color-heading);
+}
+
+.journal-article__meta {
+  @apply mt-3 font-ui text-sm;
+  color: var(--color-muted);
+}
+
+.journal-article__excerpt {
+  @apply mt-4 font-body text-base sm:text-lg leading-relaxed;
+  color: var(--color-muted);
+  max-width: 70ch;
+}
+
+.journal-article__cover {
+  @apply mt-8 overflow-hidden;
+  border-radius: var(--card-radius);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+}
+
+.journal-article__cover-img {
+  @apply w-full h-auto object-cover;
+}
+
+.journal-article__content {
+  @apply mt-10 max-w-3xl space-y-6;
+}
+
+.journal-article__h2 {
+  @apply pt-2 text-2xl sm:text-3xl;
+  font-family: var(--font-montserrat), system-ui, sans-serif;
+  color: var(--color-heading);
+}
+
+.journal-article__p {
+  @apply font-body text-base leading-relaxed;
+  color: var(--color-text);
+  max-width: 75ch;
+}
+
+.journal-article__quote {
+  @apply px-5 py-4 rounded-xl;
+  border-left: 3px solid var(--color-primary);
+  background: var(--color-surface-soft);
+  color: var(--color-text);
+  font-family: var(--font-lora), serif;
+}
+
+.journal-article__ul {
+  @apply pl-5 space-y-2;
+  color: var(--color-text);
+  font-family: var(--font-lora), serif;
+}
+
+.journal-article__figure {
+  @apply mt-2;
+}
+
+.journal-article__figure-img {
+  @apply w-full h-auto object-cover rounded-xl;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+}
+
+.journal-article__caption {
+  @apply mt-2 font-ui text-xs;
+  color: var(--color-muted);
+}
