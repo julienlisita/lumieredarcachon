@@ -5,7 +5,7 @@ import BestOfPhotosSection from '../home/BestOfPhotosSection';
 import ExploreSection from '../home/ExploreSection';
 import FinalCtaHome from '../home/FinalCtaHome';
 import Hero from '../home/Hero';
-// import JournalTeaser from '../home/JournalTeaser';
+import JournalTeaser from '../home/JournalTeaser';
 
 export default function Home() {
   return (
@@ -13,7 +13,7 @@ export default function Home() {
       <Hero />
       <BestOfPhotosSection />
       <ExploreSection />
-      {/* <JournalTeaser /> */}
+      <JournalTeaser />
       <AboutTeaser />
       <FinalCtaHome />
     </div>

@@ -25,7 +25,7 @@ export default function Footer() {
         <nav className="footer-nav">
           <Link href="/">Accueil</Link>
           <Link href="/gallery">Gallerie</Link>
-          {/* <Link href="/blog">Articles</Link> */}
+          <Link href="/journal">Carnet</Link>
           <Link href="/about">À propos</Link>
           <Link href="/contact">Contact</Link>
         </nav>
