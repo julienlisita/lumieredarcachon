@@ -8,7 +8,7 @@ export type Photo = {
   label?: string;
   description?: string;
   location?: string;
-  tags?: string[];
+  ambiances?: string[];
   date?: string;
 };
 
@@ -17,12 +17,12 @@ export const PHOTOS: Photo[] = [
     id: 'plage-chapelle-dune',
     src: '/photos/01.webp',
     alt: 'Vue sur la dune depuis la plage de la Chapelle au Cap-Ferret',
-    label: 'Cap Ferret — entre dune et pins',
+    label: 'Cap Ferret — Entre soleil et pins',
     area: 'Lège-Cap-Ferret',
     description:
       'Depuis la dune, la plage de la Chapelle se dévoile doucement, encadrée par les pins et la lumière du Bassin.',
     location: 'Plage de la Chapelle',
-    tags: ['plages', 'pins', 'lumiere-douce', 'horizons'],
+    ambiances: ['clarte'],
     date: '2024-06',
   },
   {
@@ -34,7 +34,7 @@ export const PHOTOS: Photo[] = [
     description:
       'À marée basse, L’Escalumade se transforme en un jeu de reflets et de lignes dessinées par l’eau.',
     location: 'Plage de la Croix des Marins (Claouey)',
-    tags: ['marée-basse', 'reflets', 'lignes', 'eau'],
+    ambiances: ['aurore', 'reflet'],
     date: '2024-05',
   },
   {
@@ -46,7 +46,7 @@ export const PHOTOS: Photo[] = [
     description:
       'Une plage paisible à Andernos, où le Bassin révèle son visage le plus calme et lumineux.',
     location: 'Plage des Quinconces',
-    tags: ['plages', 'lumiere-douce', 'ciel-calme', 'eau'],
+    ambiances: ['clarte'],
     date: '2024-05',
   },
   {
@@ -58,7 +58,7 @@ export const PHOTOS: Photo[] = [
     description:
       'Au sommet de la dune, le jour s’efface lentement, laissant place aux teintes chaudes du crépuscule.',
     location: 'Dune du Pilat',
-    tags: ['dunes', 'crépuscules', 'lumiere-doree', 'horizons'],
+    ambiances: ['crépuscule'],
     date: '2024-07',
   },
   {
@@ -70,7 +70,7 @@ export const PHOTOS: Photo[] = [
     description:
       'Depuis le phare du Cap Ferret, le regard se porte au loin, jusqu’à la silhouette de la dune du Pilat.',
     location: 'Phare du Cap Ferret',
-    tags: ['points-de-vue', 'horizons', 'lumiere-claire'],
+    ambiances: ['clarte'],
     date: '2024-04',
   },
   {
@@ -82,7 +82,7 @@ export const PHOTOS: Photo[] = [
     description:
       'Un instant suspendu sur la plage Pereire, où les chevaux avancent face à l’horizon du Bassin.',
     location: 'Plage Pereire',
-    tags: ['plages', 'chevaux', 'horizons', 'lumiere-douce'],
+    ambiances: ['lumiere-douce', 'reflets'],
     date: '2024-06',
   },
   {
@@ -93,7 +93,7 @@ export const PHOTOS: Photo[] = [
     area: 'La Teste-de-Buch',
     description: 'Entre sable, mer et horizon infini, le Pyla révèle sa magie',
     location: 'Plage du Pyla-sur-mer',
-    tags: ['plages', 'pêcheur', 'horizons', 'lumiere-douce'],
+    ambiances: ['crepuscule', 'lumiere-douce', 'reflets'],
     date: '2024-06',
   },
   {
@@ -105,7 +105,7 @@ export const PHOTOS: Photo[] = [
     description:
       'Quand les pas s’étirent vers l’horizon,le silence nous rappelle qye tout voyage commence ici, dans l’instant présent',
     location: 'Plage du Grand Crohot',
-    tags: ['plages', 'sable', 'horizons', 'lumiere-douce'],
+    ambiances: ['reflets', 'lumiere-douce'],
     date: '2024-06',
   },
   {
@@ -115,7 +115,7 @@ export const PHOTOS: Photo[] = [
     label: 'couché de soleil - Pereire',
     area: 'Arcachon',
     description: 'Couché de soleil plage du pereire avec ciel nuageux',
-    tags: ['plages', 'sable', 'horizons', 'lumiere-douce'],
+    ambiances: ['crepuscule', 'reflets'],
     date: '2024-06',
   },
   {
@@ -126,7 +126,7 @@ export const PHOTOS: Photo[] = [
     area: 'Lège-Cap-Ferret',
     description: 'Plage de pointe du cap ferret par temps nuageux',
     location: 'Plage du pereire',
-    tags: ['plages', 'sable', 'horizons', 'lumiere-douce'],
+    ambiances: ['lumiere-douce'],
     date: '2024-06',
   },
   {
@@ -137,7 +137,7 @@ export const PHOTOS: Photo[] = [
     area: 'Lège-Cap-Ferret',
     description: 'Blockhaus de la plage de la pointe du Cap-Ferret',
     location: 'Plage du pereire',
-    tags: ['plages', 'sable', 'horizons', 'lumiere-douce'],
+    ambiances: ['lumiere-douce'],
     date: '2024-06',
   },
   {
@@ -148,7 +148,7 @@ export const PHOTOS: Photo[] = [
     area: 'Lège-Cap-Ferret',
     description: 'Reflet à marée basse sur la plage de la pointe du Cap-Ferret par temps nuageux',
     location: 'Plage du pereire',
-    tags: ['plages', 'sable', 'horizons', 'lumiere-douce'],
+    ambiances: ['crepuscule', 'lumiere-douce', 'reflets'],
     date: '2024-06',
   },
   {
@@ -159,7 +159,7 @@ export const PHOTOS: Photo[] = [
     area: 'Lège-Cap-Ferret',
     description: 'Vue sur la croix des marins avec l’Escalumade en arrière plan',
     location: 'Plage de la croix des marins (Claouey)',
-    tags: ['plages', 'sable', 'horizons', 'lumiere-douce'],
+    ambiances: ['aurore', 'lumiere-douce'],
     date: '2024-06',
   },
   {
@@ -170,7 +170,7 @@ export const PHOTOS: Photo[] = [
     area: 'Arcachon',
     description: 'Plage des Arbousiers vue depuis les pins',
     location: 'Plage du pereire',
-    tags: ['plages', 'sable', 'horizons', 'lumiere-douce'],
+    ambiances: ['lumiere-douce'],
     date: '2024-06',
   },
   {
@@ -181,7 +181,7 @@ export const PHOTOS: Photo[] = [
     area: 'La Teste-de-Buch',
     description: 'Jétée sur la plage du pyla-sur-mer ',
     location: 'Plage du pereire',
-    tags: ['plages', 'sable', 'horizons', 'lumiere-douce'],
+    ambiances: ['lumiere-douce'],
     date: '2024-06',
   },
   {
@@ -192,7 +192,7 @@ export const PHOTOS: Photo[] = [
     area: 'La Teste-de-Buch',
     description: 'couché de soleil sur la plage avec ciel nuageux',
     location: 'Plage du pereire',
-    tags: ['plages', 'sable', 'horizons', 'lumiere-douce'],
+    ambiances: ['crepuscule', 'lumiere-douce'],
     date: '2024-06',
   },
   {
@@ -203,7 +203,7 @@ export const PHOTOS: Photo[] = [
     area: 'La Teste-de-Buch',
     description: 'Voilier et couché de soleil vu depuis la plage du pereire',
     location: 'Plage du pereire',
-    tags: ['plages', 'sable', 'horizons', 'lumiere-douce'],
+    ambiances: ['crepuscule', 'lumiere-douce'],
     date: '2024-06',
   },
   {
@@ -214,7 +214,7 @@ export const PHOTOS: Photo[] = [
     area: 'La Teste-de-Buch',
     description: 'Couché de soleil sur la plage du truc vert',
     location: 'Dune du pyla',
-    tags: ['plages', 'sable', 'horizons', 'lumiere-douce'],
+    ambiances: ['crepuscule', 'lumiere-douce'],
     date: '2024-06',
   },
   {
@@ -226,7 +226,7 @@ export const PHOTOS: Photo[] = [
     description:
       'Quand les pas s’étirent vers l’horizon,le silence nous rappelle qye tout voyage commence ici, dans l’instant présent',
     location: 'Plage du pereire',
-    tags: ['plages', 'sable', 'horizons', 'lumiere-douce'],
+    ambiances: ['crepuscule', 'lumiere-douce', 'reflets'],
     date: '2024-06',
   },
   {
@@ -238,7 +238,7 @@ export const PHOTOS: Photo[] = [
     description:
       'Quand les pas s’étirent vers l’horizon,le silence nous rappelle qye tout voyage commence ici, dans l’instant présent',
     location: 'Plage du pereire',
-    tags: ['plages', 'sable', 'horizons', 'lumiere-douce'],
+    ambiances: ['crepuscule', 'lumiere-douce'],
     date: '2024-06',
   },
   {
@@ -249,7 +249,7 @@ export const PHOTOS: Photo[] = [
     area: 'Lège-Cap-Ferret',
     description: 'Voilier et couché de soleil vu depuis la plage du pereire',
     location: 'Plage du pereire',
-    tags: ['plages', 'sable', 'horizons', 'lumiere-douce'],
+    ambiances: ['crepuscule', 'lumiere-douce', 'reflets'],
     date: '2024-06',
   },
   {
@@ -260,7 +260,7 @@ export const PHOTOS: Photo[] = [
     area: 'Arcachon',
     description: 'Couché de soleil sur la plage du truc vert',
     location: 'Plage du pereire',
-    tags: ['plages', 'sable', 'horizons', 'lumiere-douce'],
+    ambiances: ['crepuscule', 'lumiere-douce'],
     date: '2024-06',
   },
   {
@@ -272,7 +272,7 @@ export const PHOTOS: Photo[] = [
     description:
       'Quand les pas s’étirent vers l’horizon,le silence nous rappelle qye tout voyage commence ici, dans l’instant présent',
     location: 'Plage du pereire',
-    tags: ['plages', 'sable', 'horizons', 'lumiere-douce'],
+    ambiances: ['crepuscule', 'lumiere-douce', 'reflets'],
     date: '2024-06',
   },
   {
@@ -284,7 +284,7 @@ export const PHOTOS: Photo[] = [
     description:
       'Quand les pas s’étirent vers l’horizon,le silence nous rappelle qye tout voyage commence ici, dans l’instant présent',
     location: 'Plage du pereire',
-    tags: ['plages', 'sable', 'horizons', 'lumiere-douce'],
+    ambiances: ['crepuscule', 'lumiere-douce'],
     date: '2024-06',
   },
   {
@@ -296,7 +296,7 @@ export const PHOTOS: Photo[] = [
     description:
       'Quand les pas s’étirent vers l’horizon,le silence nous rappelle qye tout voyage commence ici, dans l’instant présent',
     location: 'Plage du pereire',
-    tags: ['plages', 'sable', 'horizons', 'lumiere-douce'],
+    ambiances: ['crepuscule', 'lumiere-douce'],
     date: '2024-06',
   },
   {
@@ -308,7 +308,7 @@ export const PHOTOS: Photo[] = [
     description:
       'Quand les pas s’étirent vers l’horizon,le silence nous rappelle qye tout voyage commence ici, dans l’instant présent',
     location: 'Plage du pereire',
-    tags: ['plages', 'sable', 'horizons', 'lumiere-douce'],
+    ambiances: ['crepuscule', 'lumiere-douce'],
     date: '2024-06',
   },
   {
@@ -320,7 +320,7 @@ export const PHOTOS: Photo[] = [
     description:
       'Quand les pas s’étirent vers l’horizon,le silence nous rappelle qye tout voyage commence ici, dans l’instant présent',
     location: 'Plage du pereire',
-    tags: ['plages', 'sable', 'horizons', 'lumiere-douce'],
+    ambiances: ['clarte'],
     date: '2024-06',
   },
   {
@@ -332,7 +332,7 @@ export const PHOTOS: Photo[] = [
     description:
       'Quand les pas s’étirent vers l’horizon,le silence nous rappelle qye tout voyage commence ici, dans l’instant présent',
     location: 'Plage du pereire',
-    tags: ['plages', 'sable', 'horizons', 'lumiere-douce'],
+    ambiances: ['clarte'],
     date: '2024-06',
   },
   {
@@ -344,7 +344,7 @@ export const PHOTOS: Photo[] = [
     description:
       'Quand les pas s’étirent vers l’horizon,le silence nous rappelle qye tout voyage commence ici, dans l’instant présent',
     location: 'Plage du pereire',
-    tags: ['plages', 'sable', 'horizons', 'lumiere-douce'],
+    ambiances: ['crepuscule', 'lumiere-douce'],
     date: '2024-06',
   },
   {
@@ -356,7 +356,7 @@ export const PHOTOS: Photo[] = [
     description:
       'Quand les pas s’étirent vers l’horizon,le silence nous rappelle qye tout voyage commence ici, dans l’instant présent',
     location: 'Plage du pereire',
-    tags: ['plages', 'sable', 'horizons', 'lumiere-douce'],
+    ambiances: ['crepuscule', 'lumiere-douce'],
     date: '2024-06',
   },
   {
@@ -368,7 +368,7 @@ export const PHOTOS: Photo[] = [
     description:
       'Quand les pas s’étirent vers l’horizon,le silence nous rappelle qye tout voyage commence ici, dans l’instant présent',
     location: 'Plage du pereire',
-    tags: ['plages', 'sable', 'horizons', 'lumiere-douce'],
+    ambiances: ['clarte'],
     date: '2024-06',
   },
   {
@@ -380,7 +380,7 @@ export const PHOTOS: Photo[] = [
     description:
       'Quand les pas s’étirent vers l’horizon,le silence nous rappelle qye tout voyage commence ici, dans l’instant présent',
     location: 'Plage du pereire',
-    tags: ['plages', 'sable', 'horizons', 'lumiere-douce'],
+    ambiances: ['clarte'],
     date: '2024-06',
   },
   {
@@ -392,7 +392,7 @@ export const PHOTOS: Photo[] = [
     description:
       'Quand les pas s’étirent vers l’horizon,le silence nous rappelle qye tout voyage commence ici, dans l’instant présent',
     location: 'Plage du pereire',
-    tags: ['plages', 'sable', 'horizons', 'lumiere-douce'],
+    ambiances: ['clarte'],
     date: '2024-06',
   },
   {
@@ -404,7 +404,7 @@ export const PHOTOS: Photo[] = [
     description:
       'Quand les pas s’étirent vers l’horizon,le silence nous rappelle qye tout voyage commence ici, dans l’instant présent',
     location: 'Plage du pereire',
-    tags: ['plages', 'sable', 'horizons', 'lumiere-douce'],
+    ambiances: ['crepuscule', 'lumiere-douce'],
     date: '2024-06',
   },
   {
@@ -416,7 +416,7 @@ export const PHOTOS: Photo[] = [
     description:
       'Quand les pas s’étirent vers l’horizon,le silence nous rappelle qye tout voyage commence ici, dans l’instant présent',
     location: 'Plage du pereire',
-    tags: ['plages', 'sable', 'horizons', 'lumiere-douce'],
+    ambiances: ['crepuscule', 'lumiere-douce'],
     date: '2024-06',
   },
   {
@@ -428,7 +428,7 @@ export const PHOTOS: Photo[] = [
     description:
       'Quand les pas s’étirent vers l’horizon,le silence nous rappelle qye tout voyage commence ici, dans l’instant présent',
     location: 'Plage du pereire',
-    tags: ['plages', 'sable', 'horizons', 'lumiere-douce'],
+    ambiances: ['crepuscule', 'lumiere-douce'],
     date: '2024-06',
   },
   {
@@ -440,7 +440,7 @@ export const PHOTOS: Photo[] = [
     description:
       'Quand les pas s’étirent vers l’horizon,le silence nous rappelle qye tout voyage commence ici, dans l’instant présent',
     location: 'Plage du pereire',
-    tags: ['plages', 'sable', 'horizons', 'lumiere-douce'],
+    ambiances: ['crepuscule', 'lumiere-douce', 'reflets'],
     date: '2024-06',
   },
   {
@@ -452,7 +452,7 @@ export const PHOTOS: Photo[] = [
     description:
       'Quand les pas s’étirent vers l’horizon,le silence nous rappelle qye tout voyage commence ici, dans l’instant présent',
     location: 'Plage du pereire',
-    tags: ['plages', 'sable', 'horizons', 'lumiere-douce'],
+    ambiances: ['crepuscule', 'lumiere-douce'],
     date: '2024-06',
   },
   {
@@ -464,7 +464,7 @@ export const PHOTOS: Photo[] = [
     description:
       'Quand les pas s’étirent vers l’horizon,le silence nous rappelle qye tout voyage commence ici, dans l’instant présent',
     location: 'Plage du pereire',
-    tags: ['plages', 'sable', 'horizons', 'lumiere-douce'],
+    ambiances: ['crepsucule', 'lumiere-douce'],
     date: '2024-06',
   },
   {
@@ -476,7 +476,7 @@ export const PHOTOS: Photo[] = [
     description:
       'Quand les pas s’étirent vers l’horizon,le silence nous rappelle qye tout voyage commence ici, dans l’instant présent',
     location: 'Plage du pereire',
-    tags: ['plages', 'sable', 'horizons', 'lumiere-douce'],
+    ambiances: ['clarte'],
     date: '2024-06',
   },
   {
@@ -488,7 +488,7 @@ export const PHOTOS: Photo[] = [
     description:
       'Quand les pas s’étirent vers l’horizon,le silence nous rappelle qye tout voyage commence ici, dans l’instant présent',
     location: 'Plage du pereire',
-    tags: ['plages', 'sable', 'horizons', 'lumiere-douce'],
+    ambiances: ['clarte', 'contre-jour'],
     date: '2024-06',
   },
   {
@@ -500,7 +500,7 @@ export const PHOTOS: Photo[] = [
     description:
       'Quand les pas s’étirent vers l’horizon,le silence nous rappelle qye tout voyage commence ici, dans l’instant présent',
     location: 'Plage du pereire',
-    tags: ['plages', 'sable', 'horizons', 'lumiere-douce'],
+    ambiances: ['lumiere-douce'],
     date: '2024-06',
   },
   {
@@ -512,7 +512,7 @@ export const PHOTOS: Photo[] = [
     description:
       'Quand les pas s’étirent vers l’horizon,le silence nous rappelle qye tout voyage commence ici, dans l’instant présent',
     location: 'Plage du pereire',
-    tags: ['plages', 'sable', 'horizons', 'lumiere-douce'],
+    ambiances: ['contre-jour', 'lumiere-douce'],
     date: '2024-06',
   },
   {
@@ -524,7 +524,7 @@ export const PHOTOS: Photo[] = [
     description:
       'Quand les pas s’étirent vers l’horizon,le silence nous rappelle qye tout voyage commence ici, dans l’instant présent',
     location: 'Plage du pereire',
-    tags: ['plages', 'sable', 'horizons', 'lumiere-douce'],
+    ambiances: ['crepuscule', 'reflets'],
     date: '2024-06',
   },
   {
@@ -536,7 +536,7 @@ export const PHOTOS: Photo[] = [
     description:
       'Quand les pas s’étirent vers l’horizon,le silence nous rappelle qye tout voyage commence ici, dans l’instant présent',
     location: 'Plage du pereire',
-    tags: ['plages', 'sable', 'horizons', 'lumiere-douce'],
+    ambiances: ['crepuscule', 'reflets'],
     date: '2024-06',
   },
   {
@@ -548,7 +548,7 @@ export const PHOTOS: Photo[] = [
     description:
       'Quand les pas s’étirent vers l’horizon,le silence nous rappelle qye tout voyage commence ici, dans l’instant présent',
     location: 'Plage du pereire',
-    tags: ['plages', 'sable', 'horizons', 'lumiere-douce'],
+    ambiances: ['lumiere-douce'],
     date: '2024-06',
   },
   {
@@ -560,7 +560,7 @@ export const PHOTOS: Photo[] = [
     description:
       'Quand les pas s’étirent vers l’horizon,le silence nous rappelle qye tout voyage commence ici, dans l’instant présent',
     location: 'Plage du pereire',
-    tags: ['plages', 'sable', 'horizons', 'lumiere-douce'],
+    ambiances: ['crepuscule', 'reflets'],
     date: '2024-06',
   },
   {
@@ -572,7 +572,7 @@ export const PHOTOS: Photo[] = [
     description:
       'Quand les pas s’étirent vers l’horizon,le silence nous rappelle qye tout voyage commence ici, dans l’instant présent',
     location: 'Plage du pereire',
-    tags: ['plages', 'sable', 'horizons', 'lumiere-douce'],
+    ambiances: ['crepuscule', 'reflets'],
     date: '2024-06',
   },
 ];

@@ -5,9 +5,10 @@
 import clsx from 'clsx';
 import { useRouter, useSearchParams } from 'next/navigation';
 import './GalleryFilters.css';
+import { AMBIANCE_LABELS, type Ambiance } from '@/data/ambiences';
 
 type Props = {
-  ambiances: string[];
+  ambiances: Ambiance[];
   locations: string[];
 };
 
@@ -19,7 +20,7 @@ function updateParams(params: URLSearchParams, patch: Record<string, string | nu
     else next.set(k, v);
   });
 
-  // si on filtre, on ferme la lightbox
+  // si on filtre, on ferme la lightbox + reset pagination
   next.delete('photo');
   next.delete('page');
 
@@ -31,12 +32,12 @@ export default function GalleryFilters({ ambiances, locations }: Props) {
   const router = useRouter();
   const params = useSearchParams();
 
-  const activeAmbiance = params.get('ambiance') ?? '';
+  const activeAmbiance = (params.get('ambiance') as Ambiance | null) ?? null;
   const activeLieu = params.get('lieu') ?? '';
 
   const hasFilters = !!activeAmbiance || !!activeLieu;
 
-  const onToggleAmbiance = (ambiance: string) => {
+  const onToggleAmbiance = (ambiance: Ambiance) => {
     const next = updateParams(params, { ambiance: activeAmbiance === ambiance ? null : ambiance });
     router.push(`/gallery${next}`, { scroll: false });
   };
@@ -62,7 +63,7 @@ export default function GalleryFilters({ ambiances, locations }: Props) {
               className={clsx('chip', activeAmbiance === a && 'is-active')}
               onClick={() => onToggleAmbiance(a)}
             >
-              {a}
+              {AMBIANCE_LABELS[a]}
             </button>
           ))}
         </div>

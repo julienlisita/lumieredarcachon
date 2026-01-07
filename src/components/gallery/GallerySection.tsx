@@ -11,11 +11,11 @@ import { PHOTOS } from '@/data/photos';
 import GalleryGrid from './GalleryGrid';
 import GalleryLightbox from './GalleryLightbox';
 import GalleryFilters from './GalleryFilters';
-import { AMBIANCE_FILTERS } from '@/data/ambiences';
+import { AMBIANCE_FILTERS, type Ambiance } from '@/data/ambiences';
 import Pagination from '../navigation/Pagination';
 
 const uniq = (arr: string[]) => Array.from(new Set(arr)).filter(Boolean);
-const PAGE_SIZE = 12; // ajuste comme tu veux
+const PAGE_SIZE = 12;
 
 function clamp(n: number, min: number, max: number) {
   return Math.max(min, Math.min(max, n));
@@ -26,12 +26,12 @@ export default function GallerySection() {
   const router = useRouter();
 
   const activeId = params.get('photo');
-  const activeAmbiance = params.get('ambiance');
+  const activeAmbiance = (params.get('ambiance') as Ambiance | null) ?? null;
   const activeLieu = params.get('lieu');
 
   // options de filtres (provenant des données)
   const ambiances = useMemo(() => {
-    const present = new Set(PHOTOS.flatMap((p) => p.tags ?? []));
+    const present = new Set(PHOTOS.flatMap((p) => p.ambiances ?? []));
     return AMBIANCE_FILTERS.filter((a) => present.has(a));
   }, []);
 
@@ -40,16 +40,14 @@ export default function GallerySection() {
   // liste filtrée
   const filtered = useMemo(() => {
     return PHOTOS.filter((p) => {
-      const ambianceOk = !activeAmbiance || (p.tags ?? []).includes(activeAmbiance);
+      const ambianceOk = !activeAmbiance || (p.ambiances ?? []).includes(activeAmbiance);
       const lieuOk = !activeLieu || p.area === activeLieu;
       return ambianceOk && lieuOk;
     });
   }, [activeAmbiance, activeLieu]);
 
   // pagination
-  const totalPages = useMemo(() => {
-    return Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
-  }, [filtered.length]);
+  const totalPages = useMemo(() => Math.max(1, Math.ceil(filtered.length / PAGE_SIZE)), [filtered]);
 
   const page = useMemo(() => {
     const raw = Number(params.get('page') ?? '1');
