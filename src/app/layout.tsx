@@ -7,6 +7,7 @@ export { metadata };
 
 import { Playfair_Display, Inter, Montserrat, Lora } from 'next/font/google';
 import { AnalyticsTracker } from '@/components/analytics/AnalyticsTracker';
+import { Suspense } from 'react';
 
 const playfair = Playfair_Display({
   subsets: ['latin'],
@@ -59,7 +60,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         )}
       </head>
       <body className="min-h-screen flex flex-col antialiased">
-        {process.env.NEXT_PUBLIC_GA_ID && <AnalyticsTracker />}
+        {process.env.NEXT_PUBLIC_GA_ID && (
+          <Suspense fallback={null}>
+            <AnalyticsTracker />
+          </Suspense>
+        )}
         {children}
       </body>
     </html>
