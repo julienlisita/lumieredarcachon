@@ -65,19 +65,19 @@ const AMBIANCES: ExploreItem[] = [
   {
     title: 'Crépuscule',
     description: 'Dernières lueurs et couleurs changeantes  du soir.',
-    href: '/gallery?ambiance=crepuscules',
+    href: '/gallery?ambiance=crepuscule',
     iconKey: 'moon',
   },
   {
-    title: 'Reflet',
+    title: 'Reflets',
     description: 'Miroirs d’eau, textures et marées.',
     href: '/gallery?ambiance=reflets',
     iconKey: 'waves',
   },
   {
-    title: 'Horizon',
+    title: 'Aurore',
     description: 'Lignes lointaines et respiration du paysage.',
-    href: '/gallery?ambiance=horizons',
+    href: '/gallery?ambiance=aurore',
     iconKey: 'sunrise',
   },
 ];
