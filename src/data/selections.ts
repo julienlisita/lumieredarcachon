@@ -2,7 +2,7 @@ export const BEST_OF_IDS = [
   'plage-chapelle-dune',
   'escalumade-illumination-reflet',
   'andernos-plage-quinconces',
-  'crepuscule-dune-pyla',
+  'dune-pyla-crepuscule',
   'cap-ferret-phare-dune',
-  'plage-pereire-chevaux',
+  'plage-pereire-soir-chevaux',
 ] as const;
