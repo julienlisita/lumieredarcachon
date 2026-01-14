@@ -32,9 +32,7 @@ export default function Header() {
   // ✅ Init theme: localStorage > system preference
   useEffect(() => {
     const stored = window.localStorage.getItem('theme') as Theme | null;
-    const systemPrefersDark = window.matchMedia?.('(prefers-color-scheme: dark)').matches;
-
-    const initialTheme: Theme = stored ?? (systemPrefersDark ? 'dark' : 'light');
+    const initialTheme: Theme = stored ?? 'dark';
     setTheme(initialTheme);
 
     document.documentElement.classList.toggle('dark', initialTheme === 'dark');

@@ -1,3 +1,5 @@
+// src/data/selections.ts
+
 export const BEST_OF_IDS = [
   'plage-chapelle-dune',
   'escalumade-illumination-reflet',
