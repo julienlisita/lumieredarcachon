@@ -117,9 +117,9 @@ export default function Header() {
         <Image
           src="/images/logo-light-mode.png"
           alt="Logo du site"
-          fill
-          sizes="(max-width: 768px) 40px, (max-width: 1024px) 48px, 56px"
-          style={{ objectFit: 'contain' }}
+          width={246}
+          height={100}
+          className="h-full w-auto"
           priority
         />
       </Link>

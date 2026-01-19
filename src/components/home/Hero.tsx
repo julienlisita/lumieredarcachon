@@ -35,9 +35,9 @@ export default function Hero({ showBackground = true }: { showBackground?: boole
           <Image
             src="/images/logo-dark-mode.png"
             alt="Logo de 'Lumière d'Arcachon'"
-            width={300}
-            height={300}
-            sizes="300px"
+            width={246}
+            height={100}
+            className="h-20 sm:h-24 w-auto"
             priority
           />
         </div>
