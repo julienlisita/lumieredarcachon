@@ -30,13 +30,15 @@ export default function GalleryLightbox({ open, photo, onClose, onPrev, onNext }
   const [mounted, setMounted] = useState(false);
   const [visible, setVisible] = useState(false);
 
-  // ✅ Garder la dernière photo affichée pendant l’animation de fermeture
+  // Garder la dernière photo affichée pendant l’animation de fermeture
   const [displayPhoto, setDisplayPhoto] = useState<Photo | null>(null);
 
+  // Sync photo -> displayPhoto (pour garder la photo pendant l'anim de fermeture)
   useEffect(() => {
     if (open && photo) setDisplayPhoto(photo);
   }, [open, photo]);
 
+  // Gestion mount/visible + délai de fermeture
   useEffect(() => {
     if (!open) {
       setVisible(false);
@@ -54,16 +56,34 @@ export default function GalleryLightbox({ open, photo, onClose, onPrev, onNext }
     return () => window.cancelAnimationFrame(raf);
   }, [open]);
 
+  // Focus sur le bouton de fermeture une fois visible
   useEffect(() => {
     if (!visible) return;
     closeBtnRef.current?.focus();
   }, [visible]);
 
+  // Lock scroll (html + body) pendant que la lightbox est montée (inclut l'anim de fermeture)
   useEffect(() => {
     if (!mounted) return;
 
-    const prevOverflow = document.body.style.overflow;
-    document.body.style.overflow = 'hidden';
+    const html = document.documentElement;
+    const body = document.body;
+
+    const prevHtmlOverflow = html.style.overflow;
+    const prevBodyOverflow = body.style.overflow;
+
+    html.style.overflow = 'hidden';
+    body.style.overflow = 'hidden';
+
+    return () => {
+      html.style.overflow = prevHtmlOverflow;
+      body.style.overflow = prevBodyOverflow;
+    };
+  }, [mounted]);
+
+  // Raccourcis clavier
+  useEffect(() => {
+    if (!mounted) return;
 
     const onKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose();
@@ -72,10 +92,7 @@ export default function GalleryLightbox({ open, photo, onClose, onPrev, onNext }
     };
 
     window.addEventListener('keydown', onKeyDown);
-    return () => {
-      window.removeEventListener('keydown', onKeyDown);
-      document.body.style.overflow = prevOverflow;
-    };
+    return () => window.removeEventListener('keydown', onKeyDown);
   }, [mounted, onClose, onPrev, onNext]);
 
   if (!mounted || !displayPhoto || !modalRoot) return null;
@@ -94,7 +111,7 @@ export default function GalleryLightbox({ open, photo, onClose, onPrev, onNext }
       <button className="lightbox-backdrop" onClick={onClose} aria-label="Fermer" />
 
       <div className="lightbox-panel">
-        {/* Top bar (léger) */}
+        {/* Top bar */}
         <div className="lightbox-top">
           <p id={titleId} className="lightbox-label">
             {displayPhoto.label ?? ''}
